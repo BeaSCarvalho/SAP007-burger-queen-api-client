@@ -1,0 +1,15 @@
+@import url('../../style.css');
+
+body {
+  background-color: #590202; 
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 20rem;
+}

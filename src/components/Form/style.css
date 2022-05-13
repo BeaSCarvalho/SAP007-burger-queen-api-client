@@ -1,0 +1,21 @@
+.form {
+  display:flex;
+  font-family: 'Roboto', sans-serif;
+  width: 20rem;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.form-title {
+  justify-items: center;
+  font-size: 2rem;
+  margin-bottom: 1rem; 
+  color: #D9BB84;
+  width: 20rem;
+  text-align: center;
+}
+
+.link {
+  color: white;
+  font-size: 1.2rem;
+}

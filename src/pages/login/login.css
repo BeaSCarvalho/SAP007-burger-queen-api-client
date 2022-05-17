@@ -1,14 +1,23 @@
 @import url('../../style.css');
 
 body {
+  background-image: url('../../imgs/flowers.png');
   background-color: #590202; 
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .main {
+  background-color: #590202; 
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+  height: 100%;
+}  
 
 .logo {
   width: 20rem;

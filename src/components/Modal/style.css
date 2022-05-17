@@ -1,0 +1,75 @@
+.modal {
+  background-color: #383659;
+  width: 20rem;
+  height: 25vh;
+  position: absolute;
+  top:20rem;
+  left: 33rem;
+  z-index: 10;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 20px;
+}
+
+/* para funcionar precisa adicionar uma classe quando estiver ativo
+@keyframes modal {
+  from { 
+    opacity: 0;
+    transform: translate3d(0, -60px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.modal .active {
+  animation: modal 3s;
+}*/
+
+
+.container-modal{
+  text-align: center;
+  justify-items: center;
+  
+}
+
+.close-modal {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  position: relative;
+  align-items: center;
+  right: calc(-100% + 5px);
+  top: -35px;
+}
+
+.close-modal::before,
+.close-modal::after {
+  content: ' ';
+  position: absolute;
+  width: 2.5px;
+  height: 24px;
+  background-color: black;
+}
+
+.close-modal::before{
+  transform: rotate(45deg);
+}
+.close-modal::after{
+  transform: rotate(135deg);
+}
+
+.content-modal {
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 40px;
+}
+

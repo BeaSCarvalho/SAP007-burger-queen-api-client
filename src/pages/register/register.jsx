@@ -1,9 +1,16 @@
 import logo from '../../imgs/logo-burger-queen.png';
 import Form from "../../components/Form";
+import Modal from '../../components/Modal';
 import { createUser } from '../../services/auth';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+//import { code } from '../../services/errorMessages';
 
 function Register() {
+  let navigate = useNavigate();
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const [infosUser, setInfosUser] = useState({
     name: '',
@@ -17,18 +24,36 @@ function Register() {
       ...infosUser,
       [e.target.id]: e.target.value
     })
-    console.log("e.target.value", e.target.value)
-    
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  }  
-
-  createUser(infosUser.name, infosUser.email, infosUser.password, infosUser.role) 
-  .then((response) => {
-    console.log(response.error)
-  })
+    createUser(infosUser.name, infosUser.email, infosUser.password, infosUser.role) 
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json();
+      }
+      setIsModalVisible(true)
+      switch (response.status) {
+        case 400:
+          setErrorMessage("Preencha todos os campos");
+          break;
+        case 403:
+          setErrorMessage("Email já cadastrado");
+          break;
+        default:
+          setErrorMessage("Erro, tente novamente");
+      } 
+    })
+    .then((data) => {
+      if(data.role === 'saloon') {
+        navigate('../saloon')
+      } else if(data.role === 'kitchen'){
+        navigate('../kitchen')
+      }
+    })
+    .catch((error) => console.log("erro", error))
+  }
 
   return (
     <main className='main'>
@@ -40,6 +65,7 @@ function Register() {
         nameValue={infosUser.name}
         emailValue ={infosUser.email} passwordValue={infosUser.password}
       />
+      {isModalVisible ? <Modal className={'active'} onClose= {() => setIsModalVisible(false)}>{errorMessage}</Modal> : null}
     </main>  
   )
 }

@@ -2,7 +2,6 @@ import React from "react";
 import Button from "../Button";
 import Input from "../Input";
 import { Link } from "react-router-dom";
-//useNavigate será para redirecionar após preencher o form
 
 import './style.css'
 

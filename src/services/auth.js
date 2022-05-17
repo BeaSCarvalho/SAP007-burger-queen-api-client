@@ -1,10 +1,11 @@
-const url = 'https://lab-api-bq.herokuapp.com/users';
+const urlUsers = 'https://lab-api-bq.herokuapp.com/users';
+const urlAuth = 'https://lab-api-bq.herokuapp.com/auth';
 
-export const createUser = async (nameUser, emailUser, passwordUser, role) => {
-  return await fetch(url, {
+export const createUser = (nameUser, emailUser, passwordUser, role) => {
+  return fetch(urlUsers, {
     method:'POST',
-    headers: {"Content-type": "application/json", "accept": "application/json"},
-    body:JSON.stringify({
+    headers: {'Content-type': "application/json"},
+    body: JSON.stringify({
       name: nameUser,
       email: emailUser,
       password: passwordUser,
@@ -13,6 +14,17 @@ export const createUser = async (nameUser, emailUser, passwordUser, role) => {
     })
   })
 };
+
+export const userLogin = (emailUser, passwordUser) => {
+  return fetch(urlAuth, {
+    method:'POST',
+    headers: {"Content-type": "application/json"},
+    body:JSON.stringify({
+      email: emailUser,
+      password: passwordUser,
+    })
+  })  
+}
 
 /*fetch(url, {
   method:'POST',

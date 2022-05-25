@@ -1,0 +1,28 @@
+.nav{
+  width: 100%;
+}
+.list{
+  display: flex;
+  justify-content: center;
+  background-color: #383659;
+  margin: 0;
+  padding: 10px 0 10px 0;
+}
+
+.nav-link{
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  color:black;
+  /*background-color: rgb(226, 140, 140);*/
+}
+
+@media screen and (min-width: 768px) {
+  .nav-link{
+    padding: 8px 74px 8px 50px;
+    font-size: 1.5rem;
+  }  
+}
+
+@media screen and (min-width: 1024px) {
+}

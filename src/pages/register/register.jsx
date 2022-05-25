@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 //import { code } from '../../services/errorMessages';
 
 function Register() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');

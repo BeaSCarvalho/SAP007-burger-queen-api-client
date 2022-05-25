@@ -1,12 +1,44 @@
-.genericButton {
-  background-color: #D92525;
-  border: 0;
-  color: white;
-	border-radius: 5px;
-	font-size: 1.3rem;
-	padding: 10px;
-	width: 10rem;
-	margin-bottom: 1rem;
-	cursor: pointer;
+.generic-button,
+.header-button,
+.saloon-menu,
+.product-button {
+  cursor: pointer;
+  border: none;
+  font-family:'Roboto', sans-serif;
+  border-radius: 5px;
+  padding: 10px;
 }
 
+.generic-button {
+  background-color: #D92525;
+  color: white;
+	font-size: 1.3rem;
+	width: 10rem;
+	margin-bottom: 1rem;
+	
+}
+
+.header-button {
+  background-color: transparent;
+  color: #D9BB84;
+}
+
+.saloon-menu {
+  background-color: #383659;
+  width: 19rem;
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.product-button {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.circle-button {
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  margin-left: 10px;
+}

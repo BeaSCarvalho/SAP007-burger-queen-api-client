@@ -1,0 +1,38 @@
+.name-product,
+.complement-product,
+.price-product {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.3rem;
+}
+
+.card-product {
+  background-color: rgba(243, 235, 235, 0.8);
+  width: 14rem;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name-product {
+  font-weight: bold;
+  margin: 10px 0 10px 0;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.img-product{
+  width: 6rem;
+  height: 4rem;
+  margin-bottom: 10px;
+}
+
+.complement-section{
+  display: flex;
+}
+
+.price-product {
+  margin: 10px 0 10px 0;
+}
+

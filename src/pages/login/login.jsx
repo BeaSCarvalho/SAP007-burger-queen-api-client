@@ -1,10 +1,11 @@
-import Form from "../../components/Form";
-import Modal from "../../components/Modal";
 import { useState } from 'react';
 import { userLogin } from "../../services/auth";
 import { useNavigate } from "react-router-dom";
-import { code } from '../../services/errorMessages';
+import { userToken } from "../../services/localStorage";
+//import { code } from '../../services/errorMessages';
 
+import Form from "../../components/Form";
+import Modal from "../../components/Modal";
 
 import './login.css';
 import logo from '../../imgs/logo-burger-queen.png';
@@ -39,6 +40,10 @@ function Login() {
       } else{
         const response = await userLogin(infosUser.email, infosUser.password);
         const returnJson = await response.json();
+        userToken(returnJson.token);
+        if (returnJson.token) {
+          localStorage.setItem('userToken', returnJson.token)
+        }
         switch (returnJson.role) {
           case 'saloon':
             navigate('../saloon')

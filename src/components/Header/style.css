@@ -1,0 +1,27 @@
+.header-component{
+  background-color: #590202; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 7rem;
+  width: 100%;
+}
+.header-logo{
+  width: 10rem;
+  margin: 20px 0 0 20px;
+}
+
+.header-title{
+  font-family: 'Roboto', sans-serif;
+  font-size: 3rem;
+  color: #D9BB84;
+}
+
+.fa-user,
+.fa-arrow-right-from-bracket{
+  font-size: 2rem;
+}
+
+.header-buttons {
+  margin-right: 20px;
+}

@@ -22,3 +22,8 @@ body {
 ul {
     list-style: none;
 }
+
+#root{
+    display:flex;
+    flex-direction: column;
+}   

@@ -1,9 +1,11 @@
+import Header from "../../components/Header";
 
 function Kitchen(){
   return (
-    <p>
-      Teste página da cozinha
-    </p>
+    <>
+    <Header title="Cozinha"/>
+    <p></p>
+    </>
   )
 }
 

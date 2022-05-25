@@ -6,7 +6,7 @@ const Button = (props) => {
   return (
     <button 
       type='submit'
-      className='genericButton'
+      className={props.className}
       id={props.id}
       onClick={props.onClick}
     >

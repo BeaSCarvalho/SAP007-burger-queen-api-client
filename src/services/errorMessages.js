@@ -1,4 +1,4 @@
-export const code = (response) => {
+/*export const code = (response) => {
   let message = "";
   switch (response.status, message) {
     case 400:
@@ -16,4 +16,4 @@ export const code = (response) => {
     default:
       message = "Erro, tente novamente";
   }
-};
+};*/

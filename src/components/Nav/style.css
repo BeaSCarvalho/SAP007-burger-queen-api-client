@@ -3,23 +3,22 @@
 }
 .list{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   background-color: #383659;
   margin: 0;
-  padding: 10px 0 10px 0;
+  padding: 8px 0 8px 0;
 }
 
 .nav-link{
   text-decoration: none;
-  font-family: 'Roboto', sans-serif;
-  font-size: 2rem;
-  color:black;
+  font-family: 'Rubik', sans-serif;
+  color:white;
   /*background-color: rgb(226, 140, 140);*/
 }
 
 @media screen and (min-width: 768px) {
   .nav-link{
-    padding: 8px 74px 8px 50px;
+    padding: 8px 50px 8px 0;
     font-size: 1.5rem;
   }  
 }

@@ -1,10 +1,11 @@
 .generic-button,
 .header-button,
 .saloon-menu,
-.product-button {
+.product-button,
+.saloon-finalize-order {
   cursor: pointer;
   border: none;
-  font-family:'Roboto', sans-serif;
+  font-family: 'Rubik', sans-serif;;
   border-radius: 5px;
   padding: 10px;
 }
@@ -24,21 +25,32 @@
 }
 
 .saloon-menu {
-  background-color: #383659;
-  width: 19rem;
+  background-color: #A61212;
+  width: 11rem;
   font-size: 1.5rem;
-  margin-right: 10px;
+  margin-right: 5px;
+  color: white;
 }
 
 .product-button {
+  background-color: rgba(56,	54,	89, 0.9);
+  color: white;
   margin-bottom: 10px;
   font-size: 0.9rem;
 }
 
-.circle-button {
-  cursor: pointer;
+.product-qtd-btn {
   border: none;
-  border-radius: 20px;
+  border-radius: 100%;
+  margin: 0 5px 0 5px;
+  height: 20px;
+  width: 20px;
+  font-weight: bold;
+}
+
+.saloon-finalize-order{
+  background-color: #383659;
+  color: white;
   font-size: 1.2rem;
-  margin-left: 10px;
+	width: 13rem;
 }

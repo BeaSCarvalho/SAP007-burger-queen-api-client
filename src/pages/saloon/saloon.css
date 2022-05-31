@@ -1,3 +1,8 @@
+.ul-orderList,
+.saloon-main {
+  padding-left: 0;
+}
+
 .saloon-container{
   width: 768px;
   display: flex;
@@ -5,22 +10,44 @@
   display: flex;
   flex-wrap: wrap;
   align-self: center;
-  
+  font-family: 'Rubik', sans-serif;
 }
 
 .initial-infos {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin: 0 20px 0 20px;
 }
 
 .select-menu {
+  width: 100%;
   display: flex;
-  margin: 20px 0 20px 20px;
+  justify-content: center;
+  margin: 10px 0 10px 0;
 }
 
+.flavor-menu {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 10px 0;
+}
+
+
 .saloon-form {
+  width: 100%;
   background-color: #D9BB84;
+}
+
+.saloon-main-container{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 27rem 21rem;
+  justify-content: start;
+  justify-items: center;
+  align-items: flex-start; 
+  background-color: #D9BB84;
+  min-height: 500px;
 }
 
 .saloon-main {
@@ -28,9 +55,46 @@
   background-color: #D9BB84;
   margin-top: 0;
   display: grid;
-  grid-template-columns: repeat(2, 32%);
-  gap: 10px;
-  justify-content: start;
-  justify-items: center;
-  align-items: flex-start;
+  grid-template-columns: repeat(2, 50%);
 }
+
+.order-saloon{
+  width: 100%; 
+  background-color: #D9BB84;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-order{
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.client-name-saloon,
+.client-table-saloon {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.total-order-top,
+.total-order-bottom {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: end;
+}
+
+.total-order-top{
+  margin-top: 10px;
+}
+
+.total-order-bottom{
+  border-top: 0.3px solid #000000;
+  padding-top: 5px;
+  margin:0 5px 20px 0;
+}
+
+.saloon-container-btn{
+  display: flex;
+  justify-content: center;
+}
+

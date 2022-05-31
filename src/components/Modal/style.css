@@ -1,10 +1,11 @@
 .modal {
   background-color: #383659;
+  color: white;
   width: 20rem;
   height: 25vh;
   position: absolute;
   top:20rem;
-  left: 33rem;
+  left: 35rem;
   z-index: 10;
   display: flex;
   justify-content: space-around;
@@ -55,7 +56,7 @@
   position: absolute;
   width: 2.5px;
   height: 24px;
-  background-color: black;
+  background-color: white;
 }
 
 .close-modal::before{
@@ -67,9 +68,8 @@
 
 .content-modal {
   align-items: center;
-  font-size: 1.2rem;
-  font-weight: bolder;
-  font-family: 'Roboto', sans-serif;
+  font-size: 1.4rem;
+  font-family: 'Rubik', sans-serif;
   margin-bottom: 40px;
 }
 

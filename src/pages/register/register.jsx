@@ -1,10 +1,11 @@
-import logo from '../../imgs/logo-burger-queen.png';
-import Form from "../../components/Form";
-import Modal from '../../components/Modal';
 import { createUser } from '../../services/auth';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-//import { code } from '../../services/errorMessages';
+import { setUserTokenAndRole } from '../../services/localStorage'; 
+
+import logo from '../../imgs/logo-burger-queen.png';
+import Form from "../../components/Form";
+import Modal from '../../components/Modal';
 
 function Register() {
   const navigate = useNavigate();
@@ -46,6 +47,8 @@ function Register() {
       } 
     })
     .then((data) => {
+      setUserTokenAndRole(data.role, data.token)
+      console.log(data.token)
       if(data.role === 'saloon') {
         navigate('../saloon')
       } else if(data.role === 'kitchen'){

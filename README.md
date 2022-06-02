@@ -46,6 +46,11 @@ Projeto desenvolvido para um restaurante de hambúrgueres em crescimento que, ap
 >
 >Os clientes podem escolher entre hambúrgueres de carne bovina, frango ou vegetariano. Além disso, por um adicional de R$ 1,00 , eles podem adicionar queijo ou ovo.
 
+### ACESSO
+
+Email e senha de contas já cadastradas para utilizar a aplicação.
+- Atendimento - Email: atendente@bq.com Senha: 123456
+- Cozinha - Email: cozinha@bq.com Senha: 123456
 
 ## 2. HISTÓRIAS DE USUÁRIOS
 
@@ -69,7 +74,8 @@ O cozinheiro, ao fazer login com sua conta, poderá ver os pedidos que estão pe
 Garçom/garçonete poderá visualizar uma tela que mostra apenas os pedidos prontos para servir. Ao clicar no botão, o status do pedido passará para 'Entregue' e marcará  o tempo que levou para ser entregue na mesa correspondente. 
 <br>
 
-## 3. DEFINIÇÃO DE PRONTO
+## 3. DEFINIÇÃO DE PRONTO 
+- Ser uma SPA (Single Page Application).
 - Ter recebido code review de pelo menos uma parceira.
 - Fazer testes unitários e, além disso, testar o produto manualmente.
 - Fazer testes de usabilidade e incorporar o feedback do usuário.

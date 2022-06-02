@@ -4,31 +4,46 @@ import { getTime, getPreparationTime } from "../../components/Time/formatDate"
 
 
 import Header from "../../components/Header";
-import OrderCard from "../../components/OrderCard";
-import OrderProduct from "../../components/OrderProduct"
+import { OrderCard, OrderProduct } from "../../components/OrderCard";
 import Nav from '../../components/Nav';
+import Modal from '../../components/Modal';
 
-import './kitchen.css';
+import styles from './kitchen.module.css';
 
 function Kitchen(){
 
   const [orders, setOrders] = useState([]); 
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   useEffect(() => {
     getAllOrders()
     .then((response) => {
-      setOrders(response.filter((orders) =>{
-        return orders.status === 'pending' || orders.status === 'processing'
+      setOrders(response.filter((order) =>{
+        const ordersFiltered = order.status === 'pending' || order.status === 'processing'
+        return ordersFiltered
       }))
     })
-    .catch((error) => console.log(error))   
+    .catch((error) => error)   
   })
 
+  // useEffect(() => {
+  //   let modal = isModalVisible;
+  
+  //    if(orders.length === 0){
+  //      modal = true;
+  //      msg = "Nenhum pedido para ser entregue";
+  //    } 
+  //    console.log(modal)
+  //    console.log(orders)
+  //    setIsModalVisible(modal)
+
+  //  }, [])
+
   return (
-    <div className="kitchen-container">
+    <div className={styles.container}>
       <Header />
       <Nav pathLinkOne='/kitchen' textPathOne='A Preparar' pathLinkTwo='/historic' textPathTwo='Histórico' />
-      <section>
+      <section className={styles.main}>
         {orders.map((item,index) => {
           const statusReady = item.status === 'ready'
           const infosProduct = item.Products.map((product) => {
@@ -60,7 +75,10 @@ function Kitchen(){
             />
           )  
         })}
-      </section>  
+      </section>
+      {isModalVisible ? 
+        <Modal className='modal active' onClose= {() => setIsModalVisible(false)}>Nenhum pedido para ser preparado</Modal> : null
+      }  
     </div>
   )
 }

@@ -4,7 +4,7 @@ import Register from "./pages/register/register";
 import Kitchen from "./pages/kitchen/kitchen";
 import Saloon from "./pages/saloon/saloon";
 import Status from "./pages/saloon/status";
-import Historic from "./pages/saloon/historic";
+import Historic from "./pages/historic/historic";
 import Manager from "./pages/manager/manager";
 
 

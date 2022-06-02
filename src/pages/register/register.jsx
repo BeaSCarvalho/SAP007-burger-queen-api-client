@@ -7,6 +7,8 @@ import logo from '../../imgs/logo-burger-queen.png';
 import Form from "../../components/Form";
 import Modal from '../../components/Modal';
 
+import styles from '../login/login.module.css';
+
 function Register() {
   const navigate = useNavigate();
 
@@ -55,12 +57,12 @@ function Register() {
         navigate('../kitchen')
       }
     })
-    .catch((error) => console.log("erro", error))
+    .catch((error) => error)
   }
 
   return (
-    <main className='main'>
-      <img alt='Burger Queen Logo' className='logo' src={logo}></img>
+    <main className={styles.main}>
+      <img alt='Burger Queen Logo' className={styles.logo} src={logo}></img>
       <Form formTitle='Cadastre-se' pathLink='/' textPath='Caso já tenha cadastro, faça Login'
         textButton='Cadastrar'  nameId='name' emailId='email' passwordId='password'  
         onChange={handleChange}

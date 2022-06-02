@@ -2,33 +2,17 @@
   background-color: #383659;
   color: white;
   width: 20rem;
-  height: 25vh;
+  height: 30vh;
   position: absolute;
   top:20rem;
-  left: 35rem;
   z-index: 10;
   display: flex;
   justify-content: space-around;
   align-items: center;
   border-radius: 20px;
+  border: solid black;
+  box-shadow: 4.8px 4.8px 4.8px rgba(0, 0, 0, 0.25);
 }
-
-/* para funcionar precisa adicionar uma classe quando estiver ativo
-@keyframes modal {
-  from { 
-    opacity: 0;
-    transform: translate3d(0, -60px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-.modal .active {
-  animation: modal 3s;
-}*/
-
 
 .container-modal{
   text-align: center;
@@ -46,7 +30,7 @@
   display: flex;
   position: relative;
   align-items: center;
-  right: calc(-100% + 5px);
+  right: calc(-100% + 25px);
   top: -35px;
 }
 
@@ -73,3 +57,16 @@
   margin-bottom: 40px;
 }
 
+@media screen and (min-width: 768px) {
+  .modal {
+    left: 13rem;
+ 
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .modal {
+    left: 33rem;
+ 
+  }
+}

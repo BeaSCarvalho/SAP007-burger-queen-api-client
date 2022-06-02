@@ -4,34 +4,48 @@ import { getTime, getPreparationTime } from "../../components/Time/formatDate"
 
 import Header from "../../components/Header";
 import Nav from "../../components/Nav";
-import OrderCard from "../../components/OrderCard";
-import OrderProduct from "../../components/OrderProduct"
+import { OrderCard, OrderProduct } from "../../components/OrderCard";
+import Modal from '../../components/Modal';
+
+import styles from './status.module.css'
 
 
 function Status(){
+  
   const [orders, setOrders] = useState([]); 
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   useEffect(() => {
+    // let modal = isModalVisible;
+
     getAllOrders()
     .then((data) => {
       setOrders(data.filter((order) => {
-        if(order.status === ''){
-          return 'Nenhum pedido a ser entregue'
-        } else {
-          return order.status === "ready" 
-        }
-        
+        console.log(orders)
+        return order.status === "ready"
       })) 
     })
-    .catch((error) => console.log(error))   
+    .catch((error) => error)   
   })
 
+  useEffect(() => {
+    let modal = isModalVisible;
+
+    setInterval(() => {
+      if(orders.length === 0){
+        modal = true;
+      }  
+    }, 3000);
+      setIsModalVisible(modal)
+    }, [])
+
   return (
-    <div>
+    <div className={styles.container}>
       <Header />
-      <Nav pathLinkOne='/saloon' textPathOne='Novo Pedido' pathLinkTwo='/status' textPathTwo='Status Pedidos'
-       pathLinkThree='/historic' textPathThree='Histórico'/>
-       <section>
+      <Nav pathLinkOne='/saloon' textPathOne='Novo Pedido' pathLinkTwo='/status' textPathTwo='Pedidos Prontos'
+        pathLinkThree='/historic' textPathThree='Histórico'
+      />
+      <section className={styles.main}>
         {orders.map((item,index) => {
           const statusReady = item.status === 'ready'
           const infosProduct = item.Products.map((product) => {
@@ -62,8 +76,10 @@ function Status(){
             />
           )  
         })}
-      </section>  
-      <p></p>
+      </section> 
+      {isModalVisible ? 
+        <Modal className='modal active' onClose= {() => setIsModalVisible(false)}>Nenhum pedido para ser entregue</Modal> : null
+      } 
     </div>
   )
 }

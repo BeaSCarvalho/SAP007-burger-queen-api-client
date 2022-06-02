@@ -31,4 +31,16 @@ describe('Input component', () => {
     const radioButton = screen.getByPlaceholderText('kitchen');
     fireEvent.change(radioButton, { target: { value: "kitchen" } });
   });
+
+  test('selected saloon', done => {
+    function handleRoleChange(e) {
+      expect(e.target.value).toEqual('saloon');
+      done();
+    }
+
+    render(<Input onChange={handleRoleChange} placeholder="saloon" />);
+
+    const radioButton = screen.getByPlaceholderText('saloon');
+    fireEvent.change(radioButton, { target: { value: "saloon" } });
+  });
 })  

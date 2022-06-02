@@ -32,11 +32,3 @@ export const userLogin = async (emailUser, passwordUser) => {
   .catch(error => console.log('Erro de solicitação', error));
 }
 
-/*fetch(url, {
-  method:'POST',
-  body:JSON.stringify()
-  headers: {"Content-type": "application/json;charset=UTF-8"}
-})
-  .then(response => response.json())
-  .then(json => console.log(json))
-  .catch(err => console.log('Erro de solicitação', err));*/

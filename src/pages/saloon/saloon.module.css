@@ -1,9 +1,9 @@
-.ul-orderList,
-.saloon-main {
+.ul,
+.main {
   padding-left: 0;
 }
 
-.saloon-container{
+.container{
   width: 768px;
   display: flex;
   flex-wrap: wrap;
@@ -11,35 +11,36 @@
   flex-wrap: wrap;
   align-self: center;
   font-family: 'Rubik', sans-serif;
+  background-color: #D9BB84;
 }
 
-.initial-infos {
+.infos {
   width: 100%;
   display: flex;
   justify-content: flex-start;
   margin: 0 20px 0 20px;
 }
 
-.select-menu {
+.menu {
   width: 100%;
   display: flex;
   justify-content: center;
   margin: 10px 0 10px 0;
 }
 
-.flavor-menu {
+.flavors {
   display: flex;
   justify-content: center;
   margin: 0 0 10px 0;
 }
 
 
-.saloon-form {
+.form {
   width: 100%;
   background-color: #D9BB84;
 }
 
-.saloon-main-container{
+.mainContainer{
   width: 100%;
   display: grid;
   grid-template-columns: 27rem 21rem;
@@ -50,7 +51,7 @@
   min-height: 500px;
 }
 
-.saloon-main {
+.main{
   width: 100%;
   background-color: #D9BB84;
   margin-top: 0;
@@ -58,42 +59,42 @@
   grid-template-columns: repeat(2, 50%);
 }
 
-.order-saloon{
+.order{
   width: 100%; 
   background-color: #D9BB84;
   display: flex;
   flex-direction: column;
 }
 
-.title-order{
+.title{
   font-size: 1.5rem;
   text-align: center;
 }
 
-.client-name-saloon,
-.client-table-saloon {
+.clientName,
+.clientTable {
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
 
-.total-order-top,
-.total-order-bottom {
+.totalOrderTop,
+.totalOrderBottom {
   font-weight: bold;
   font-size: 1.2rem;
   text-align: end;
 }
 
-.total-order-top{
+.totalOrderTop{
   margin-top: 10px;
 }
 
-.total-order-bottom{
+.totalOrderBottom{
   border-top: 0.3px solid #000000;
   padding-top: 5px;
   margin:0 5px 20px 0;
 }
 
-.saloon-container-btn{
+.containerBtn{
   display: flex;
   justify-content: center;
 }

@@ -2,56 +2,76 @@ import React from "react";
 
 import Button from "../Button";
 
-const OrderCard = (props, key) => {
+import './style.css'
+
+export const OrderCard = (props, key) => {
   const historicPage = window.location.pathname === '/historic';
   return (
-    <li className="card-order"key={key}>
+    <li className="card-order" key={key}>
       <section className="change-status-card">
         {props.status === "pending" && (
-          <div className="order-status bg-color-pending color-lightest">
+          <div className="order-status color-pending color-lightest">
             Pendente
           </div>
         )} 
         {props.status === "processing" && (
-          <div className="order-status bg-color-yellow color-brown">
+          <div className="order-status color-processing color-brown">
             Preparando
           </div>
         )}
         {props.status === "ready" && (
-          <div className="order-status bg-color-green color-lightest">
+          <div className="order-status color-ready color-lightest">
             Pronto para servir
           </div>
         )}
         {props.status === "served" && (
-          <div className="order-status bg-color-toclient color-lightest">
+          <div className="order-status color-served color-lightest">
             Entregue
           </div>
-        )}    
-        <p>{props.id}</p>
-        <p>Cliente: {props.clientName}</p>
-        <p>Mesa: {props.table}</p>
-        <p>Criado em: {props.createdAt}</p>
-        <p>Finalizado em: {props.processedAt}</p>
-        <p>Preparado em: {props.preparedAt}</p>
-        <p>Entregue em: {props.updatedAt}</p>
-        <p>{props.orderProducts}</p>
+        )}
+        <section className='infos-card-order'> 
+          <p className="p-info">{props.id}</p>
+          <p className="p-info">Cliente: {props.clientName}</p>
+          <p className="p-info">Mesa: {props.table}</p>
+          <p className="p-info">Criado em: {props.createdAt}</p>
+          <p className="p-info">Finalizado em: {props.processedAt}</p>
+          <p className="p-info">Preparado em: {props.preparedAt}</p>
+          <p className="p-info">Entregue em: {props.updatedAt}</p>
+          <div className="p-info">{props.orderProducts}</div>
+        </section>  
       </section>  
-      {!historicPage ? 
-        <section className='change-status-button'>
-          {props.status === "pending" && (
-            <Button text='Preparar' onClick={props.updateToProcessing}/>
-          )}
-          {props.status === "processing" && (
-            <Button text='Pronto' onClick={props.updateToReady}/>
-          )}
-          {props.status === "ready" && (
-            <Button text='Entregar' onClick={props.updateToDeliveried}/>
-          )}
-        </section> : ''
-      }
+      <section className='change-status-button'>
+        {!historicPage ? 
+          <>
+            {props.status === "pending" && (
+              <Button text='Preparar' className='product-button' onClick={props.updateToProcessing}/>
+            )}
+            {props.status === "processing" && (
+              <Button text='Pronto' className='product-button' onClick={props.updateToReady}/>
+            )}
+            {props.status === "ready" && (
+              <Button text='Entregar' className='product-button' onClick={props.updateToDeliveried}/>
+            )}
+          </> : ''
+        }
+      </section>
     </li>
   )    
 }
 
-export default OrderCard;
+export const OrderProduct = (props, key) => {
+  
+  return (
+    <div className='container-products-order' key={key}>
+      <p className='items-title'>Item:</p>
+      <p className='p-info-product'>{props.name}</p>
+      <p className='p-info-product'>{props.flavor}</p>
+      <p className='p-info-product'>Complemento: {props.complement}</p>
+      <p className='p-info-product'>Quantidade: {props.qtd}</p>
+    </div>
+  )    
+}
+
+
+
 

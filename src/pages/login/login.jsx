@@ -7,7 +7,7 @@ import { setUserTokenAndRole } from "../../services/localStorage";
 import Form from "../../components/Form";
 import Modal from "../../components/Modal";
 
-import './login.css';
+import styles from './login.module.css';
 import logo from '../../imgs/logo-burger-queen.png';
 
 //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlYUBhdGVuZGVudGUuY29tIiwiaWQiOjM4ODQsImlhdCI6MTY1MzUwNTM3MiwiZXhwIjoxNjg1MDYyOTcyfQ.aIEWlgdnlGfv9zeRyN_W3dHg-lCgT5P6Pm_0TNW4JP8
@@ -65,20 +65,22 @@ function Login() {
               setErrorMessage("Erro, tente novamente");
           }
         })
-        .catch((error) => console.log("erro", error))
+        .catch((error) => error)
   }
   }
 
   return (
-    <main className='main' data-testid="login-test">
-      <img className='logo' alt='Burger Queen Logo' src={logo}></img>
+    <main className={styles.main} data-testid="login-test">
+      <img className={styles.logo} alt='Burger Queen Logo' src={logo}></img>
       <Form formTitle='Login' pathLink='/register' textPath='Cadastrar novo funcionário' textButton='Entrar'
         emailId='email' passwordId='password'  
         onChange={handleChange}
         onClick={handleSubmit}
         emailValue ={infosUser.email} passwordValue={infosUser.password}
       />
-      {isModalVisible ? <Modal className='modal active' onClose= {() => setIsModalVisible(false)}>{errorMessage}</Modal> : null}
+      {isModalVisible ? <Modal className='modal active' 
+        onClose= {() => setIsModalVisible(false)}>{errorMessage}</Modal> : null
+      }
     </main>
   );  
 };

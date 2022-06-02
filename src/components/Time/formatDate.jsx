@@ -11,7 +11,7 @@ export const getPreparationTime = (endDateString, startDateString) => {
   const processedAt = new Date(endDateString);
   const preparationTime = differenceInMinutes(processedAt, createdAt)
   if(preparationTime < 60){
-    return `${preparationTime} minutos`
+    return `${preparationTime} min(s)`
   } else {
     return `${minutesToHours(preparationTime)} hora(s)`
   }

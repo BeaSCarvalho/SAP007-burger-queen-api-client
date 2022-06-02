@@ -19,4 +19,7 @@
   width: 18rem;
   height: 1.5rem;
   font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 4.8px 4.8px 4.8px rgba(0, 0, 0, 0.25);
 }

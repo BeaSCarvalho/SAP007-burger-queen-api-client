@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { getAllProducts } from '../../services/products';
 import { createOrder } from '../../services/orders';
-import { useNavigate } from "react-router-dom";
 
 import Header from "../../components/Header";
 import Nav from "../../components/Nav";
@@ -11,11 +10,9 @@ import Product from "../../components/Product";
 import ItemOrderList from '../../components/ItemOrderList';
 import Modal from '../../components/Modal';
 
-import './saloon.css';
+import styles from './saloon.module.css';
 
 function Saloon(){
-  const navigate = useNavigate();
-
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -44,7 +41,7 @@ function Saloon(){
         return item.type === category || item.sub_type === category
       }));
     })
-    .catch((error) => console.log(error))
+    .catch((error) => error)
   }
   function handleFlavor(){
     setButtonsFlavors(true)
@@ -57,7 +54,7 @@ function Saloon(){
         return item.flavor === flavor 
       }));
     })
-    .catch((error) => console.log(error))
+    .catch((error) => error)
   }
 
   function addItemToOrder(item){
@@ -110,8 +107,6 @@ function Saloon(){
     return sumWithInitial
   }
 
-  console.log(orderList)
-
   function handleSubmit() {
     const orderData = {
       client: infosClient.name,
@@ -136,44 +131,48 @@ function Saloon(){
       setIsModalVisible(true)
       setErrorMessage("Adicione produtos ao pedido")
     }else{
+      setIsModalVisible(true)
+      setErrorMessage("Pedidos finalizado com sucesso!")
       createOrder(orderData)
       .then(() =>{
-          navigate('../status')  
+        window.location.reload(true)
       })
-      .catch((error) => {
-        console.log(error)
-      })
+      .catch((error) => error)
     }  
   }
 
   return (
-    <div className='saloon-container'>
+    <div className={styles.container}>
       <Header />
-      <Nav pathLinkOne='/saloon' textPathOne='Novo Pedido' pathLinkTwo='/status' textPathTwo='Status Pedidos'
+      <Nav pathLinkOne='/saloon' textPathOne='Novo Pedido' pathLinkTwo='/status' textPathTwo='Pedidos Prontos'
         pathLinkThree='/historic' textPathThree='Histórico'
       />
-      <section className='saloon-form'>
-        <div className="initial-infos">
+       {isModalVisible ? 
+            <Modal className='modal active' 
+              onClose= {() => setIsModalVisible(false)}>{errorMessage}</Modal> : null
+          }
+      <section className={styles.form}>
+        <div className={styles.infos}>
           <Input type='text' placeholder='Cliente' className='saloon-input' onChange={handleChange} id='name' value={infosClient.name}/>
           <Input type='number' placeholder='Número da mesa' className='saloon-input' onChange={handleChange} id='table' value={infosClient.table}/>
-          <p className='total-order-top' >Total: R${sum()},00</p>
+          <p className={styles.totalOrderTop} >Total: R${sum()},00</p>
         </div> 
-        <div className="select-menu">
+        <div className={styles.menu}>
           <Button className='saloon-menu' id='breakfast' text='Café da Manhã' onClick={() => handleMenu('breakfast')}/>
           <Button className='saloon-menu' id='all-day' text='Lanches' onClick={() => handleFlavor()} />
           <Button className='saloon-menu' id='all-day' text='Porções' onClick={() => handleMenu('side')} />
           <Button className='saloon-menu' id='all-day' text='Bebidas' onClick={() => handleMenu('drinks')} />
         </div>
         {buttonsFlavors ? 
-          <div className="flavor-menu">
+          <div className={styles.flavors}>
             <Button className='saloon-menu' text='Carne' onClick={() => filterPerFlavor('carne')}/>
             <Button className='saloon-menu' text='Frango' onClick={() => filterPerFlavor('frango')}/>
             <Button className='saloon-menu' text='Vegetariano' onClick={() => filterPerFlavor('vegetariano')}/>
           </div>
           :''}    
       </section>
-      <section className='saloon-main-container'>
-        <ul className="saloon-main">
+      <section className={styles.mainContainer}>
+        <ul className={styles.main}>
           {filteredProducts.map((item) => {
             return (
               <Product
@@ -188,11 +187,11 @@ function Saloon(){
             )
           })}
         </ul>
-        <section className='order-saloon'>
-          <h1 className='title-order'>Pedido</h1>
-          <p className='client-name-saloon'>Cliente: {infosClient.name}</p>
-          <p className='client-table-saloon'>Mesa: {infosClient.table}</p>
-          <ul className='ul-orderList'>
+        <section className={styles.order}>
+          <h1 className={styles.title}>Pedido</h1>
+          <p className={styles.clientName}>Cliente: {infosClient.name}</p>
+          <p className={styles.clientTable}>Mesa: {infosClient.table}</p>
+          <ul className={styles.ul}>
             {orderList.map((item) =>{
               const checkFlavor = item.flavor === null;
               return (
@@ -208,14 +207,10 @@ function Saloon(){
               )  
             })}
           </ul>  
-          <p className='total-order-bottom'>Total: R${sum()},00</p>
-          <div className='saloon-container-btn'>
+          <p className={styles.totalOrderBottom}>Total: R${sum()},00</p>
+          <div className={styles.containerBtn}>
             <Button className='saloon-finalize-order' text='Finalizar Pedido' onClick={handleSubmit}/>
           </div>  
-          {isModalVisible ? 
-            <Modal className='modal active' 
-            onClose= {() => setIsModalVisible(false)}>{errorMessage}</Modal> : null
-          }
         </section>     
       </section>
     </div>

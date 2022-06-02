@@ -10,7 +10,6 @@ function Header(){
   const navigate = useNavigate();
 
   let titleHeader = '';
-  console.log(role())
   if(role() === 'kitchen'){
     titleHeader = 'Cozinha'
   } else if (role() === 'saloon'){

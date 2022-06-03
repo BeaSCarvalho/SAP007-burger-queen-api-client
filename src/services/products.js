@@ -8,4 +8,5 @@ export const getAllProducts = async () => {
       'Authorization': token()
     },
   }).then(response => response.json()) 
+  .catch((error) => error);
 }

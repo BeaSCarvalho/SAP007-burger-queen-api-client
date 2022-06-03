@@ -15,8 +15,6 @@ export const createUser =  (nameUser, emailUser, passwordUser, role) => {
       restaurant: 'BurgerQueenBea'
     })
   })
-  // .then(response => response.json())
-  // .catch(error => console.log('Erro de solicitação', error));
 };
 
 export const userLogin = async (emailUser, passwordUser) => {
@@ -29,6 +27,6 @@ export const userLogin = async (emailUser, passwordUser) => {
     })
   })
   .then(response => response.json()) 
-  .catch(error => console.log('Erro de solicitação', error));
+  .catch(error => error);
 }
 

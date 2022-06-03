@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { getAllOrders, updateOrderStatus} from "../../services/orders";
 import { getTime, getPreparationTime } from "../../components/Time/formatDate"
 
 import Header from "../../components/Header";
 import Nav from "../../components/Nav";
 import { OrderCard, OrderProduct } from "../../components/OrderCard";
-import Modal from '../../components/Modal';
+import Modal from "../../components/Modal";
 
-import styles from './status.module.css'
+import styles from "./status.module.css";
 
 
 function Status(){
@@ -16,28 +16,39 @@ function Status(){
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   useEffect(() => {
-    // let modal = isModalVisible;
-
+    let modal = isModalVisible;
     getAllOrders()
     .then((data) => {
       setOrders(data.filter((order) => {
-        console.log(orders)
-        return order.status === "ready"
-      })) 
-    })
-    .catch((error) => error)   
-  })
-
-  useEffect(() => {
-    let modal = isModalVisible;
-
-    setInterval(() => {
+        return order.status === "ready";
+      }))
       if(orders.length === 0){
         modal = true;
-      }  
-    }, 3000);
+      } else if(orders.length >= 1){
+       modal = false;
+      }
       setIsModalVisible(modal)
-    }, [])
+    })
+    .catch((error) => error)   
+  }, [orders])
+
+  // useEffect(() =>{
+  //   console.log('cheguei aqui')
+  //   console.log(isModalVisible)
+  // },[orders])
+
+  // useEffect(() => {
+  //   let modal = isModalVisible;
+  //   const interval = setInterval(() => {
+  //   setInterval(() => {
+  //     if(orders.length === 0){
+  //       modal = true;
+  //     }  
+  //   }, 3000);
+  //     setIsModalVisible(modal)
+  //     return () => clearInterval(interval);
+  //   }, [])
+  // })  
 
   return (
     <div className={styles.container}>

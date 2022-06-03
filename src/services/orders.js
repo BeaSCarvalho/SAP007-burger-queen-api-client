@@ -13,6 +13,7 @@ export const createOrder = async (order) => {
       products: order.products,
     })  
   }).then((response) => response.json())
+  .catch((error) => error);
 }  
 
 export const getAllOrders = async () => {
@@ -22,6 +23,7 @@ export const getAllOrders = async () => {
       'Authorization': token()
     }
   }).then((response) => response.json())
+  .catch((error) => error);
 }   
 
 export const updateOrderStatus = async (orderId, status) => {
@@ -34,9 +36,6 @@ export const updateOrderStatus = async (orderId, status) => {
       status:status
     })
   }).then((response) => response.json())
+  .catch((error) => error);
 }
 
-/*
-.then((response) => response.json())
-  .catch((error) => console.log(error, "Erro ao criar o pedido"));
-*/

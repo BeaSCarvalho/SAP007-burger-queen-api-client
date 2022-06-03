@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+<div align="center">
+   <img alt="Logo Burger Queen" src="/src/imgs/logo-burger-queen.png">
+  
+**Deploy:** https://beascarvalho.github.io/SAP007-burger-queen-api-client/
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## ÍNDICE
 
-## Available Scripts
+* [1. Sobre o Projeto](#1-sobre-o-projeto)
+* [2. Histórias de Usuários](#2-histórias-de-usuários)
+* [3. Definição de Pronto](#3-definição-de-pronto)
+* [4. Protótipo](#5-protótipo)
+* [5. Tecnologias Utilizadas](#6-tecnologias-utilizadas)
+* [6. Autora](#7-autora)
 
-In the project directory, you can run:
+***
 
-### `npm start`
+## 1. SOBRE O PROJETO
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Projeto desenvolvido para um restaurante de hambúrgueres em crescimento que, após abrir o serviço 24 horas, percebeu a necessidade de um sistema que ajude a receber os pedidos dos clientes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+>O restaurante Burger Queen possui dois menus. Um simples para o café da manhã:
+>
+>| Ítem                      |Preço R$|
+>|---------------------------|------|
+>| Café americano            |    5 |
+>| Café com leite            |    7 |
+>| Sanduíche de presunto e queijo|   10 |
+>| Suco de fruta natural     |    7 |
+>
+>E outro menu para o resto do dia:
+>
+>| Ítem                      |Preço |
+>|---------------------------|------|
+>|**Hambúrgueres**           |   **R$**   |
+>|Hambúrguer simples         |    10|
+>|Hambúrguer duplo           |    15|
+>|**Acompanhamentos**        |   **R$**   |
+>|Batata frita               |     5|
+>|Anéis de cebola            |     5|
+>|**Bebidas**                |   **R$**   |
+>|Água 500ml                 |     5|
+>|Água 750ml                 |     7|
+>|Bebida gaseificada 500ml   |     7|
+>|Bebida gaseificada 750ml   |    10|
+>
+>Os clientes podem escolher entre hambúrgueres de carne bovina, frango ou vegetariano. Além disso, por um adicional de R$ 1,00 , eles podem adicionar queijo ou ovo.
 
-### `npm test`
+### ACESSO
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Email e senha de contas já cadastradas para utilizar a aplicação.
+- Atendimento - Email: atendente@bq.com Senha: 123456
+- Cozinha - Email: cozinha@bq.com Senha: 123456
 
-### `npm run build`
+## 2. HISTÓRIAS DE USUÁRIOS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### História de usuário 1
+>"Eu, como garçom/garçonete quero entrar no sistema de pedidos."<br><br>
+Para isso, o usuário precisa acessar uma tela de login em que seja possível inserir um email e senha, receber mensagens de erro conforme as informações inseridas ou caso falte alguma delas e entrar no sistema de pedidos com as credenciais corretas 
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### História de usuário 2
+>"Eu como garçom/garçonete quero poder anotar o pedido de um cliente para não depender da minha memória, saber quanto cobrar e poder enviar os pedidos para a cozinha para serem preparados em ordem."<br><br>
+Na tela de atendimento o usuário poderá anotar o nome do cliente e o número de sua mesa, adicionar os produtos ao pedido, excluir produtos, ver o valor total do pedido e enviá-lo para a cozinha. Os produtos no cardápio estarão separados em quatro categorias: Café da manhã, Lanches, porções e bebidas. Dentro da categoria 'Lanches' há uma divisão por lanches de frango, carne e vegetariano.
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### História de usuário 3
+>"Eu como chefe de cozinha quero ver os pedidos dos clientes em ordem, poder marcar que estão prontos e poder notificar os garçons/garçonetes que o pedido está pronto para ser entregue ao cliente."<br><br>
+O cozinheiro, ao fazer login com sua conta, poderá ver os pedidos que estão pendentes e que estão sendo preparados. Ao receber um pedido clicará em um botão para atualizar ao garçom que o pedido está sendo preparado. Ao clicar novamente no botão, o status do pedido passa para 'Pronto para Servir', mostra o tempo que levou para a cozinha preparar e sai da tela do cozinheiro.
+<br>
 
-### `npm run eject`
+### História de usuário 4
+>"Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá-los rapidamente aos clientes."<br><br>
+Garçom/garçonete poderá visualizar uma tela que mostra apenas os pedidos prontos para servir. Ao clicar no botão, o status do pedido passará para 'Entregue' e marcará  o tempo que levou para ser entregue na mesa correspondente. 
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 3. DEFINIÇÃO DE PRONTO 
+- Ser uma SPA (Single Page Application).
+- Ter recebido code review de pelo menos uma parceira.
+- Fazer testes unitários e, além disso, testar o produto manualmente.
+- Fazer testes de usabilidade e incorporar o feedback do usuário.
+- Funcionar bem em um tablet.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 4. PROTÓTIPO
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Prototipo desenvolvido no Figma  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 5. TECNOLOGIAS UTILIZADAS
 
-## Learn More
+- **React**
+- **CSS3**
+- **HTML5**
+- **GitHub**
+- **Visual Studio Code**
+- Planejamento: **[Trello](https://trello.com/b/IUBQZnI0/projeto-burger-queen)**
+- Protótipos: **[Figma](https://www.figma.com/)**
+- Edições de imagem: **[Canva](https://www.canva.com/)**
+- Paleta de cores: **[Adobe Color](https://color.adobe.com/pt/create/color-wheel)**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 6. AUTORA
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<table>
+  <td>
+    <div align= "center">
+      <img alt="Beatriz de Sousa Carvalho" height="150" src="https://avatars.githubusercontent.com/u/99045620?v=4"> 
+    </div>
+    <h3 align="center"><a href="https://github.com/BeaSCarvalho">Beatriz de Sousa Carvalho</a></h3>
+    <h4 align="center">Projeto do Bootcamp da <em><a href="https://hub.laboratoria.la/br">Laboratoria</a></em></h4>
+    <div align="center">
+       <a href = "mailto:beaproscarva@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+      <a href="https://www.linkedin.com/in/beatriz-de-sousa-carvalho/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+    </div>
+  </td>
+</table>  

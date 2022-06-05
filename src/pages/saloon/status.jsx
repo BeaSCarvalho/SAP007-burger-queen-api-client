@@ -14,41 +14,19 @@ function Status(){
   
   const [orders, setOrders] = useState([]); 
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  
   useEffect(() => {
-    let modal = isModalVisible;
     getAllOrders()
     .then((data) => {
-      setOrders(data.filter((order) => {
-        return order.status === "ready";
-      }))
-      if(orders.length === 0){
-        modal = true;
-      } else if(orders.length >= 1){
-       modal = false;
-      }
+      const filteredOrders = data.filter((order) => {
+        return order.status === 'ready';
+      })
+      setOrders(filteredOrders);
+      const modal = filteredOrders.length === 0
       setIsModalVisible(modal)
     })
-    .catch((error) => error)   
-  }, [orders])
-
-  // useEffect(() =>{
-  //   console.log('cheguei aqui')
-  //   console.log(isModalVisible)
-  // },[orders])
-
-  // useEffect(() => {
-  //   let modal = isModalVisible;
-  //   const interval = setInterval(() => {
-  //   setInterval(() => {
-  //     if(orders.length === 0){
-  //       modal = true;
-  //     }  
-  //   }, 3000);
-  //     setIsModalVisible(modal)
-  //     return () => clearInterval(interval);
-  //   }, [])
-  // })  
+    .catch((error) => error) 
+  })  
 
   return (
     <div className={styles.container}>

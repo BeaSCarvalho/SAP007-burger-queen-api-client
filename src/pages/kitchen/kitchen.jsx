@@ -17,27 +17,17 @@ function Kitchen(){
 
   useEffect(() => {
     getAllOrders()
-    .then((response) => {
-      setOrders(response.filter((order) =>{
-        const ordersFiltered = order.status === 'pending' || order.status === 'processing'
-        return ordersFiltered
-      }))
+    .then((data) => {
+      const filteredOrders = data.filter((order) => {
+      const kitchenOrders = order.status === 'pending' || order.status === 'processing'
+        return kitchenOrders
+      })
+      setOrders(filteredOrders);
+      const modal = filteredOrders.length === 0;
+      setIsModalVisible(modal);
     })
     .catch((error) => error)   
   })
-
-  // useEffect(() => {
-  //   let modal = isModalVisible;
-  
-  //    if(orders.length === 0){
-  //      modal = true;
-  //      msg = "Nenhum pedido para ser entregue";
-  //    } 
-  //    console.log(modal)
-  //    console.log(orders)
-  //    setIsModalVisible(modal)
-
-  //  }, [])
 
   return (
     <div className={styles.container}>

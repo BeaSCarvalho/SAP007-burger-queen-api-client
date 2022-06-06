@@ -11,3 +11,7 @@
 .logo {
   width: 20rem;
 }
+
+.body {
+  background-image: url('../../imgs/fast-food-pattern.jpg');
+} 

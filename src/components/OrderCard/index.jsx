@@ -2,10 +2,10 @@ import React from "react";
 
 import Button from "../Button";
 
-import './style.css'
+import "./style.css"
 
 export const OrderCard = (props, key) => {
-  const historicPage = window.location.pathname === '/historic';
+  const historicPage = window.location.pathname === "/historic";
   return (
     <li className="card-order" key={key}>
       <section className="change-status-card">
@@ -52,7 +52,7 @@ export const OrderCard = (props, key) => {
             {props.status === "ready" && (
               <Button text='Entregar' className='product-button' onClick={props.updateToDeliveried}/>
             )}
-          </> : ''
+          </> : ""
         }
       </section>
     </li>

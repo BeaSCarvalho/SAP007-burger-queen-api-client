@@ -3,22 +3,22 @@ import Button from "../Button";
 import { useNavigate } from "react-router-dom";
 import { logOut, role } from "../../services/localStorage";
 
-import './style.css';
-import logo from '../../imgs/logo-burger-queen.png';
+import "./style.css";
+import logo from "../../imgs/logo-burger-queen.png";
 
 function Header(){
   const navigate = useNavigate();
 
-  let titleHeader = '';
-  if(role() === 'kitchen'){
-    titleHeader = 'Cozinha'
-  } else if (role() === 'saloon'){
-    titleHeader = 'Atendimento'
+  let titleHeader = "";
+  if(role() === "kitchen"){
+    titleHeader = "Cozinha"
+  } else if (role() === "saloon"){
+    titleHeader = "Atendimento"
   }
 
   function handleLogout() {
     logOut();
-    navigate('../')
+    navigate("../")
   }
 
   return (

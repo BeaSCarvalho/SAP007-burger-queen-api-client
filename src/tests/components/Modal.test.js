@@ -1,12 +1,12 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import Modal from '../../components/Modal';
-import Button from '../../components/Button';
+import { render, screen, fireEvent } from "@testing-library/react";
+import Modal from "../../components/Modal";
+import Button from "../../components/Button";
 
-describe('Modal Component', () => {
-  it('should render a Modal', () => {
+describe("Modal Component", () => {
+  it("should render a Modal", () => {
     render(<Modal />);
 
-    const modalTest = screen.getByTestId('test');
+    const modalTest = screen.getByTestId("test");
     expect(modalTest).toBeInTheDocument();
   })
 

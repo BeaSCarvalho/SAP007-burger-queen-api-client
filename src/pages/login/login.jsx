@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { userLogin } from "../../services/auth";
 import { useNavigate } from "react-router-dom";
 import { setUserTokenAndRole } from "../../services/localStorage";
@@ -7,8 +7,8 @@ import { setUserTokenAndRole } from "../../services/localStorage";
 import Form from "../../components/Form";
 import Modal from "../../components/Modal";
 
-import styles from './login.module.css';
-import logo from '../../imgs/logo-burger-queen.png';
+import styles from "./login.module.css";
+import logo from "../../imgs/logo-burger-queen.png";
 
 //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlYUBhdGVuZGVudGUuY29tIiwiaWQiOjM4ODQsImlhdCI6MTY1MzUwNTM3MiwiZXhwIjoxNjg1MDYyOTcyfQ.aIEWlgdnlGfv9zeRyN_W3dHg-lCgT5P6Pm_0TNW4JP8
 function Login() {
@@ -16,11 +16,11 @@ function Login() {
 
 
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [infosUser, setInfosUser] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   })
 
   const handleChange = (e) => {
@@ -33,26 +33,26 @@ function Login() {
 
   function handleSubmit (e){
       e.preventDefault();
-      if(infosUser.email === '' || infosUser.password === ''){
+      if(infosUser.email === "" || infosUser.password === ""){
         setIsModalVisible(true)
         setErrorMessage("Preencha todos os campos")
       } else{
         userLogin(infosUser.email, infosUser.password)
         .then((response) =>{
           switch (response.role) {
-            case 'manager':
+            case "manager":
               setUserTokenAndRole(response.role, response.token)
-              navigate('../manager')
-            case 'saloon':
+              navigate("../manager")
+            case "saloon":
               setUserTokenAndRole(response.role, response.token)
-              navigate('../saloon')
+              navigate("../saloon")
               break;
-            case 'kitchen':
+            case "kitchen":
               setUserTokenAndRole(response.role, response.token)
-              navigate('../kitchen')
+              navigate("../kitchen")
               break;
             default:
-              navigate('../')    
+              navigate("../")    
           }
       
           switch (response.status) {

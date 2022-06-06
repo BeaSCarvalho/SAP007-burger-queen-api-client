@@ -1,4 +1,4 @@
-import { format, differenceInMinutes, minutesToHours } from 'date-fns';
+import { format, differenceInMinutes, minutesToHours } from "date-fns";
 
 export const getTime = (dateString) => {
   const date = new Date(dateString);

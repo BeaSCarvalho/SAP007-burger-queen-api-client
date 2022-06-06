@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { getAllOrders } from "../../services/orders";
 import { getTime, getPreparationTime } from "../../components/Time/formatDate"
 import { role } from "../../services/localStorage";
@@ -7,7 +7,7 @@ import Header from "../../components/Header";
 import Nav from "../../components/Nav";
 import { OrderCard, OrderProduct } from "../../components/OrderCard";
 
-import styles from './historic.module.css'
+import styles from "./historic.module.css"
 
 function Historic(){
   const [orders, setOrders] = useState([]); 
@@ -22,7 +22,7 @@ function Historic(){
     .catch((error) => error)   
   })
 
-  const roleKitchen = role() === 'kitchen';
+  const roleKitchen = role() === "kitchen";
 
   return (
     <div className={styles.container}>
@@ -36,15 +36,15 @@ function Historic(){
       }  
       <section className={styles.main}>
         {orders.map((item,index) => {
-          const statusServed = item.status === 'served'
-          const statusReady = item.status === 'ready' ||  item.status === 'served'
+          const statusServed = item.status === "served"
+          const statusReady = item.status === "ready" ||  item.status === "served"
           const infosProduct = item.Products.map((product) => {
             return (
               <OrderProduct
                 key={product.id}
                 name={product.name}
                 flavor={product.flavor}
-                complement={product.complement !== null ? product.complement : 'nenhum'}
+                complement={product.complement !== null ? product.complement : "nenhum"}
                 qtd={product.qtd}
               />
             )
@@ -58,9 +58,9 @@ function Historic(){
               clientName={item.client_name}
               table={item.table}
               createdAt={getTime(item.createdAt)}
-              processedAt={statusReady ? getTime(item.processedAt): ''}
-              preparedAt={statusReady ? getPreparationTime(item.processedAt, item.createdAt): ''}
-              updatedAt={statusServed ? getPreparationTime(item.updatedAt, item.processedAt) : ''}
+              processedAt={statusReady ? getTime(item.processedAt): ""}
+              preparedAt={statusReady ? getPreparationTime(item.processedAt, item.createdAt): ""}
+              updatedAt={statusServed ? getPreparationTime(item.updatedAt, item.processedAt) : ""}
               orderProducts={infosProduct}
               textButton={item.status}
             />

@@ -2,7 +2,7 @@ import React from "react";
 
 import Button from "../Button";
 
-import './style.css'
+import "./style.css"
 
 const ItemOrderList = (props, key) => {
   return (

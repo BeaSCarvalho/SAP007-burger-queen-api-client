@@ -19,7 +19,7 @@ function Status(){
     getAllOrders()
     .then((data) => {
       const filteredOrders = data.filter((order) => {
-        return order.status === 'ready';
+        return order.status === "ready";
       })
       setOrders(filteredOrders);
       const modal = filteredOrders.length === 0
@@ -36,14 +36,14 @@ function Status(){
       />
       <section className={styles.main}>
         {orders.map((item,index) => {
-          const statusReady = item.status === 'ready'
+          const statusReady = item.status === "ready"
           const infosProduct = item.Products.map((product) => {
             return (
               <OrderProduct
                 key={product.id}
                 name={product.name}
                 flavor={product.flavor}
-                complement={product.complement !== null ? product.complement : 'nenhum'}
+                complement={product.complement !== null ? product.complement : "nenhum"}
                 qtd={product.qtd}
               />
             )
@@ -57,11 +57,11 @@ function Status(){
               clientName={item.client_name}
               table={item.table}
               createdAt={getTime(item.createdAt)}
-              processedAt={statusReady ? getTime(item.processedAt) : ''}
-              preparedAt={statusReady ? getPreparationTime(item.processedAt, item.createdAt) : ''}
+              processedAt={statusReady ? getTime(item.processedAt) : ""}
+              preparedAt={statusReady ? getPreparationTime(item.processedAt, item.createdAt) : ""}
               orderProducts={infosProduct}
               textButton={item.status}
-              updateToDeliveried={() => updateOrderStatus(item.id, 'served')}
+              updateToDeliveried={() => updateOrderStatus(item.id, "served")}
             />
           )  
         })}

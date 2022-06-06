@@ -1,12 +1,9 @@
-module.exports = {
+{
     "env": {
         "browser": true,
         "es2021": true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
-    ],
+    "extends": "plugin:react/recommended",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -19,13 +16,16 @@ module.exports = {
     ],
     "rules": {
         "linebreak-style": 0,
+        "prefer-destructuring": 0,
+        "import/extensions": 0,
+        "import/prefer-default-export": 0,
+        "no-plusplus":0,
+        "no-alert":0,
+        "no-tabs":0,
         "no-inner-declarations":0,
         "no-param-reassign":0,
-        "quotes": [2, "single", { "avoidEscape": true }],
-        "jest/no-disabled-tests": "warn",
-        "jest/no-focused-tests": "error",
-        "jest/no-identical-title": "error",
-        "jest/prefer-to-have-length": "warn",
-        "jest/valid-expect": "error",
+        "react/react-in-jsx-scope": 0,
+        "quotes": ["error", "double"],
+        "react/prop-types":0
     }
 }

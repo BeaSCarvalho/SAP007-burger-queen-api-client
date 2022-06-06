@@ -1,25 +1,25 @@
-import { createUser } from '../../services/auth';
-import { useState } from 'react';
+import { createUser } from "../../services/auth";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { setUserTokenAndRole } from '../../services/localStorage'; 
+import { setUserTokenAndRole } from "../../services/localStorage"; 
 
-import logo from '../../imgs/logo-burger-queen.png';
+import logo from "../../imgs/logo-burger-queen.png";
 import Form from "../../components/Form";
-import Modal from '../../components/Modal';
+import Modal from "../../components/Modal";
 
-import styles from '../login/login.module.css';
+import styles from "../login/login.module.css";
 
 function Register() {
   const navigate = useNavigate();
 
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [infosUser, setInfosUser] = useState({
-    name: '',
-    email: '',
-    password: '',
-    role: ''
+    name: "",
+    email: "",
+    password: "",
+    role: ""
   })
   
   const handleChange = (e) => {
@@ -51,10 +51,10 @@ function Register() {
     .then((data) => {
       setUserTokenAndRole(data.role, data.token)
       console.log(data.token)
-      if(data.role === 'saloon') {
-        navigate('../saloon')
-      } else if(data.role === 'kitchen'){
-        navigate('../kitchen')
+      if(data.role === "saloon") {
+        navigate("../saloon")
+      } else if(data.role === "kitchen"){
+        navigate("../kitchen")
       }
     })
     .catch((error) => error)
@@ -70,7 +70,7 @@ function Register() {
         nameValue={infosUser.name}
         emailValue ={infosUser.email} passwordValue={infosUser.password}
       />
-      {isModalVisible ? <Modal className={'active'} onClose= {() => setIsModalVisible(false)}>{errorMessage}</Modal> : null}
+      {isModalVisible ? <Modal className={"active"} onClose= {() => setIsModalVisible(false)}>{errorMessage}</Modal> : null}
     </main>  
   )
 }

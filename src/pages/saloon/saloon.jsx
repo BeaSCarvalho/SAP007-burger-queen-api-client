@@ -1,29 +1,29 @@
-import { useState } from 'react';
-import { getAllProducts } from '../../services/products';
-import { createOrder } from '../../services/orders';
+import { useState } from "react";
+import { getAllProducts } from "../../services/products";
+import { createOrder } from "../../services/orders";
 
 import Header from "../../components/Header";
 import Nav from "../../components/Nav";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import Product from "../../components/Product";
-import ItemOrderList from '../../components/ItemOrderList';
-import Modal from '../../components/Modal';
+import ItemOrderList from "../../components/ItemOrderList";
+import Modal from "../../components/Modal";
 
-import styles from './saloon.module.css';
+import styles from "./saloon.module.css";
 
 function Saloon(){
 
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [orderList, setOrderList] = useState([]);
   const [buttonsFlavors, setButtonsFlavors] = useState(false)
 
   const [infosClient, setInfosClient] = useState({
-    name: '',
-    table: '',
+    name: "",
+    table: "",
   })
 
   const handleChange = (e) => {
@@ -124,7 +124,7 @@ function Saloon(){
       }),
     };
 
-    if(infosClient.name === '' || infosClient.table === ''){
+    if(infosClient.name === "" || infosClient.table === ""){
       setIsModalVisible(true)
       setErrorMessage("Preencha todos os campos")
     } else if(orderList.length === 0) {
@@ -158,18 +158,18 @@ function Saloon(){
           <p className={styles.totalOrderTop} >Total: R${sum()},00</p>
         </div> 
         <div className={styles.menu}>
-          <Button className='saloon-menu' id='breakfast' text='Café da Manhã' onClick={() => handleMenu('breakfast')}/>
+          <Button className='saloon-menu' id='breakfast' text='Café da Manhã' onClick={() => handleMenu("breakfast")}/>
           <Button className='saloon-menu' id='all-day' text='Lanches' onClick={() => handleFlavor()} />
-          <Button className='saloon-menu' id='all-day' text='Porções' onClick={() => handleMenu('side')} />
-          <Button className='saloon-menu' id='all-day' text='Bebidas' onClick={() => handleMenu('drinks')} />
+          <Button className='saloon-menu' id='all-day' text='Porções' onClick={() => handleMenu("side")} />
+          <Button className='saloon-menu' id='all-day' text='Bebidas' onClick={() => handleMenu("drinks")} />
         </div>
         {buttonsFlavors ? 
           <div className={styles.flavors}>
-            <Button className='saloon-menu' text='Carne' onClick={() => filterPerFlavor('carne')}/>
-            <Button className='saloon-menu' text='Frango' onClick={() => filterPerFlavor('frango')}/>
-            <Button className='saloon-menu' text='Vegetariano' onClick={() => filterPerFlavor('vegetariano')}/>
+            <Button className='saloon-menu' text='Carne' onClick={() => filterPerFlavor("carne")}/>
+            <Button className='saloon-menu' text='Frango' onClick={() => filterPerFlavor("frango")}/>
+            <Button className='saloon-menu' text='Vegetariano' onClick={() => filterPerFlavor("vegetariano")}/>
           </div>
-          :''}    
+          :""}    
       </section>
       <section className={styles.mainContainer}>
         <ul className={styles.main}>
@@ -180,7 +180,7 @@ function Saloon(){
                 name={item.name}
                 image={item.image} 
                 flavor={item.flavor} 
-                complement={item.complement !== null ? 'Complemento: ' + item.complement : 'sem complemento'} 
+                complement={item.complement !== null ? "Complemento: " + item.complement : "sem complemento"} 
                 price={item.price}
                 onClick={() => addItemToOrder(item)}
               />
@@ -197,10 +197,10 @@ function Saloon(){
               return (
                 <ItemOrderList 
                   key={item.id}
-                  name={checkFlavor ? item.name : item.name + ' - ' + item.flavor}
+                  name={checkFlavor ? item.name : item.name + " - " + item.flavor}
                   qtd={item.qtd}
                   price={item.qtd * item.price}
-                  complement = {item.complement !== null ? item.complement : 's/c.'}
+                  complement = {item.complement !== null ? item.complement : "s/c."}
                   removeItem={() => removeItemOfOrder(item)}
                   addItem={() => addItemToOrder(item)}
                 />

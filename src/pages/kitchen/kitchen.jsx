@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { getAllOrders, updateOrderStatus} from "../../services/orders";
 import { getTime, getPreparationTime } from "../../components/Time/formatDate"
 
 
 import Header from "../../components/Header";
 import { OrderCard, OrderProduct } from "../../components/OrderCard";
-import Nav from '../../components/Nav';
-import Modal from '../../components/Modal';
+import Nav from "../../components/Nav";
+import Modal from "../../components/Modal";
 
-import styles from './kitchen.module.css';
+import styles from "./kitchen.module.css";
 
 function Kitchen(){
 
@@ -19,7 +19,7 @@ function Kitchen(){
     getAllOrders()
     .then((data) => {
       const filteredOrders = data.filter((order) => {
-      const kitchenOrders = order.status === 'pending' || order.status === 'processing'
+      const kitchenOrders = order.status === "pending" || order.status === "processing"
         return kitchenOrders
       })
       setOrders(filteredOrders);
@@ -35,14 +35,14 @@ function Kitchen(){
       <Nav pathLinkOne='/kitchen' textPathOne='A Preparar' pathLinkTwo='/historic' textPathTwo='Histórico' />
       <section className={styles.main}>
         {orders.map((item,index) => {
-          const statusReady = item.status === 'ready'
+          const statusReady = item.status === "ready"
           const infosProduct = item.Products.map((product) => {
             return (
               <OrderProduct
                 key={product.id}
                 name={product.name}
                 flavor={product.flavor}
-                complement={product.complement !== null ? product.complement : 'nenhum'}
+                complement={product.complement !== null ? product.complement : "nenhum"}
                 qtd={product.qtd}
               />
             )
@@ -56,12 +56,12 @@ function Kitchen(){
               clientName={item.client_name}
               table={item.table}
               createdAt={getTime(item.createdAt)}
-              processedAt={statusReady ? getTime(item.processedAt) : ''}
-              preparedAt={statusReady ? getPreparationTime(item.processedAt, item.createdAt) : ''}
+              processedAt={statusReady ? getTime(item.processedAt) : ""}
+              preparedAt={statusReady ? getPreparationTime(item.processedAt, item.createdAt) : ""}
               orderProducts={infosProduct}
               textButton={item.status}
-              updateToProcessing={() => updateOrderStatus(item.id, 'processing')}
-              updateToReady={() => updateOrderStatus(item.id, 'ready')}
+              updateToProcessing={() => updateOrderStatus(item.id, "processing")}
+              updateToReady={() => updateOrderStatus(item.id, "ready")}
             />
           )  
         })}

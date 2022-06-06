@@ -8,7 +8,7 @@ import Historic from "./pages/historic/historic";
 import Manager from "./pages/manager/manager";
 
 
-import './style.css';
+import "./style.css";
 
 function Paths() {
   return (

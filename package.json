@@ -1,7 +1,7 @@
 {
   "name": "sap007-burger-queen-api-client",
   "version": "0.1.0",
-  "homepage": "https://beascarvalho.github.io/SAP007-burger-queen-api-client/",
+  "homepage": "https://sap-007-burger-queen-api-client-beascarvalho.vercel.app/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",

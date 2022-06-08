@@ -3,9 +3,9 @@ export const setUserTokenAndRole = (role, token) => {
   localStorage.setItem("token", token)    
 }
 
-export const logOut = (role, token) => {
-  localStorage.removeItem("role", role);
-  localStorage.removeItem("token", token);
+export const logOut = () => {
+  localStorage.removeItem("role");
+  localStorage.removeItem("token");
 } 
 
 export const role = () => localStorage.getItem("role")

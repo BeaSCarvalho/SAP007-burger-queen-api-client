@@ -3,8 +3,8 @@ import Button from "../Button";
 import { useNavigate } from "react-router-dom";
 import { logOut, role } from "../../services/localStorage";
 
-import "./style.css";
 import logo from "../../imgs/logo-burger-queen.png";
+import "./style.css";
 
 function Header(){
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ function Header(){
 
   function handleLogout() {
     logOut();
-    navigate("../")
+    navigate("/")
   }
 
   return (
@@ -26,7 +26,7 @@ function Header(){
       <img className='header-logo' alt='Burger Queen Logo' src={logo}></img>
       <h1 className='header-title'>{titleHeader}</h1>
       <div className="header-buttons">  
-        <Button className='header-button' text={<i className="fa-solid fa-arrow-right-from-bracket"></i>} onClick={handleLogout}/>
+        <Button type='button' className='header-button' text={<i className="fa-solid fa-arrow-right-from-bracket"></i>} onClick={handleLogout}/>
       </div>  
     </header>
   )

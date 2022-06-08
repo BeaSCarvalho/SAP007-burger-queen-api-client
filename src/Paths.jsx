@@ -1,12 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import Login from "./pages/login/login";
-import Register from "./pages/register/register";
-import Kitchen from "./pages/kitchen/kitchen";
+import Login from "./pages/login";
+import Register from "./pages/register";
+import Kitchen from "./pages/kitchen";
 import Saloon from "./pages/saloon/saloon";
 import Status from "./pages/saloon/status";
-import Historic from "./pages/historic/historic";
+import Historic from "./pages/historic";
 import Manager from "./pages/manager/manager";
-
 
 import "./style.css";
 

@@ -2,15 +2,12 @@ import React from "react";
 
 import "./style.css";
 
-const Button = (props) => {
+const Button = ({text, ...rest}) => {
   return (
     <button 
-      type='submit'
-      className={props.className}
-      id={props.id}
-      onClick={props.onClick}
+      {...rest}
     >
-      {props.text}
+      {text}
     </button>
   )
 }

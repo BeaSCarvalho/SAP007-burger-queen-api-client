@@ -29,15 +29,17 @@ function Register() {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    createUser(infosUser.name, infosUser.email, infosUser.password, infosUser.role) 
-    .then((response) => {
-      if (response.status === 200) {
-        return response.json();
-      }
-      setIsModalVisible(true)
-      switch (response.status) {
+    try {
+      const response = await createUser(infosUser.name,
+        infosUser.email, infosUser.password, infosUser.role
+      ) 
+      switch (response.status){
+        case 200: 
+          const data = await response.json();
+          setUserTokenAndRole(data.role, data.token)
+          navigate(`../${data.role}`)
         case 400:
           setErrorMessage("Preencha todos os campos");
           break;
@@ -46,31 +48,23 @@ function Register() {
           break;
         default:
           setErrorMessage("Erro, tente novamente");
-      } 
-    })
-    .then((data) => {
-      setUserTokenAndRole(data.role, data.token)
-      console.log(data.token)
-      if(data.role === "saloon") {
-        navigate("../saloon")
-      } else if(data.role === "kitchen"){
-        navigate("../kitchen")
-      }
-    })
-    .catch((error) => error)
+      }     
+    } catch (error) {
+        return error
+    } 
   }
 
   return (
     <main className={styles.main}>
       <img alt='Burger Queen Logo' className={styles.logo} src={logo}></img>
-      <Form formTitle='Cadastre-se' pathLink='/' textPath='Caso já tenha cadastro, faça Login'
+      <Form page ='register' formTitle='Cadastre-se' pathLink='/' textPath='Caso já tenha cadastro, faça Login'
         textButton='Cadastrar'  nameId='name' emailId='email' passwordId='password'  
         onChange={handleChange}
-        onClick={handleSubmit}
+        onSubmit={handleSubmit}
         nameValue={infosUser.name}
         emailValue ={infosUser.email} passwordValue={infosUser.password}
       />
-      {isModalVisible ? <Modal className={"active"} onClose= {() => setIsModalVisible(false)}>{errorMessage}</Modal> : null}
+      {isModalVisible && <Modal className={"active"} onClose= {() => setIsModalVisible(false)}>{errorMessage}</Modal>}
     </main>  
   )
 }

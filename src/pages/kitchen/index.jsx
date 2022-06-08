@@ -16,17 +16,21 @@ function Kitchen(){
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   useEffect(() => {
-    getAllOrders()
-    .then((data) => {
-      const filteredOrders = data.filter((order) => {
-      const kitchenOrders = order.status === "pending" || order.status === "processing"
-        return kitchenOrders
-      })
-      setOrders(filteredOrders);
-      const modal = filteredOrders.length === 0;
-      setIsModalVisible(modal);
-    })
-    .catch((error) => error)   
+    async function filterOrders() {
+      try {
+        const response = await getAllOrders();
+        const filteredOrders = response.filter((order) => {
+          const kitchenOrders = order.status === "pending" || order.status === "processing"
+          return kitchenOrders
+        })
+        setOrders(filteredOrders);
+        const modal = filteredOrders.length === 0;
+        setIsModalVisible(modal);
+      } catch (error) {
+        return error
+      }
+    } 
+    filterOrders();
   })
 
   return (

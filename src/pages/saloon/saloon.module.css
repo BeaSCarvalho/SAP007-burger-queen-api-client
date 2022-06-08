@@ -14,13 +14,6 @@
   background-color: #D9BB84;
 }
 
-.infos {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  margin: 0 20px 0 20px;
-}
-
 .menu {
   width: 100%;
   display: flex;
@@ -71,12 +64,6 @@
   text-align: center;
 }
 
-.clientName,
-.clientTable {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
 .totalOrderTop,
 .totalOrderBottom {
   font-weight: bold;
@@ -99,3 +86,6 @@
   justify-content: center;
 }
 
+.ul{
+  margin-top: 20px;
+}

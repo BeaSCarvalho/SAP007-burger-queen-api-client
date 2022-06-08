@@ -4,17 +4,17 @@ import Button from "../Button";
 
 import "./style.css"
 
-const ItemOrderList = (props, key) => {
+const ItemOrderList = ({key, name, removeItem, qtd, addItem, complement, price}) => {
   return (
     <li className="item-container" key={key}>
-      <p className="product-name">{props.name}</p>
+      <p className="product-name">{name}</p>
       <div className="qtd-product">
-        <Button className='product-qtd-btn' text='-' onClick={props.removeItem}/>
-        <p className="number-qtd">{props.qtd}</p>
-        <Button className='product-qtd-btn' text='+' onClick={props.addItem}/>
+        <Button className='product-qtd-btn' text='-' onClick={removeItem}/>
+        <p className="number-qtd">{qtd}</p>
+        <Button className='product-qtd-btn' text='+' onClick={addItem}/>
       </div>  
-      <p className="product-complement">{props.complement}</p>
-      <p className="product-price">R${props.price},00</p>
+      <p className="product-complement">{complement}</p>
+      <p className="product-price">R${price},00</p>
     </li>
   )    
 }

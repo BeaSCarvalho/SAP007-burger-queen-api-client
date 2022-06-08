@@ -13,13 +13,17 @@ function Historic(){
   const [orders, setOrders] = useState([]); 
 
   useEffect(() => {
-    getAllOrders()
-    .then((data) => {
-      setOrders(data.sort((a,b) => {
-        return b.id - a.id
-      }))
-    })
-    .catch((error) => error)   
+    async function historic() {
+      try {
+        const response = await getAllOrders();
+        setOrders(response.sort((a,b) => {
+          return b.id - a.id
+        }))
+      } catch (error) {
+        error
+      }  
+    }
+    historic()  
   })
 
   const roleKitchen = role() === "kitchen";
@@ -58,9 +62,9 @@ function Historic(){
               clientName={item.client_name}
               table={item.table}
               createdAt={getTime(item.createdAt)}
-              processedAt={statusReady ? getTime(item.processedAt): ""}
-              preparedAt={statusReady ? getPreparationTime(item.processedAt, item.createdAt): ""}
-              updatedAt={statusServed ? getPreparationTime(item.updatedAt, item.processedAt) : ""}
+              processedAt={statusReady && getTime(item.processedAt)}
+              preparedAt={statusReady && getPreparationTime(item.processedAt, item.createdAt)}
+              updatedAt={statusServed && getPreparationTime(item.updatedAt, item.processedAt)}
               orderProducts={infosProduct}
               textButton={item.status}
             />

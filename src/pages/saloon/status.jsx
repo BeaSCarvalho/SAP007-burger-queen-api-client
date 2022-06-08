@@ -16,16 +16,20 @@ function Status(){
   const [isModalVisible, setIsModalVisible] = useState(false);
   
   useEffect(() => {
-    getAllOrders()
-    .then((data) => {
-      const filteredOrders = data.filter((order) => {
-        return order.status === "ready";
-      })
-      setOrders(filteredOrders);
-      const modal = filteredOrders.length === 0
-      setIsModalVisible(modal)
-    })
-    .catch((error) => error) 
+    async function filterOrders(){
+      try {
+        const response = await getAllOrders();  
+        const filteredOrders = response.filter((order) => {
+          return order.status === "ready";
+        })
+        setOrders(filteredOrders);
+        const modal = filteredOrders.length === 0
+        setIsModalVisible(modal)
+      } catch (error) {
+        return error
+      }
+    }
+    filterOrders();
   })  
 
   return (
@@ -66,8 +70,8 @@ function Status(){
           )  
         })}
       </section> 
-      {isModalVisible ? 
-        <Modal className='modal active' onClose= {() => setIsModalVisible(false)}>Nenhum pedido para ser entregue</Modal> : null
+      {isModalVisible &&
+        <Modal className='modal active' onClose= {() => setIsModalVisible(false)}>Nenhum pedido para ser entregue</Modal>
       } 
     </div>
   )

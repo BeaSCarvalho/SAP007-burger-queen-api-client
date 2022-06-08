@@ -2,40 +2,52 @@ import { token } from "./localStorage";
 const urlOrders = "https://lab-api-bq.herokuapp.com/orders";
 
 export const createOrder = async (order) => {
-  return await fetch(urlOrders, {
-    method:"POST",
-    headers: {"Content-type": "application/json",
-      "Authorization": token()
-    },
-    body: JSON.stringify({
-      client: order.client,
-      table: order.table,
-      products: order.products,
-    })  
-  }).then((response) => response.json())
-  .catch((error) => error);
-}  
+  try {
+    const response = await fetch(urlOrders, {
+      method:"POST",
+      headers: {"Content-type": "application/json",
+        "Authorization": token()
+      },
+      body: JSON.stringify({
+        client: order.client,
+        table: order.table,
+        products: order.products,
+      })  
+    })
+    return response.json() 
+  } catch (error) {
+    return error
+  }
+}
 
 export const getAllOrders = async () => {
-  return await fetch(urlOrders, {
-    method:"GET",
-    headers: {"Content-type": "application/json",
-      "Authorization": token()
-    }
-  }).then((response) => response.json())
-  .catch((error) => error);
+  try {
+    const response = await fetch(urlOrders, {
+      method:"GET",
+      headers: {"Content-type": "application/json",
+        "Authorization": token()
+      }
+    })
+    return response.json() 
+  } catch (error) {
+    return error
+  }
 }   
 
 export const updateOrderStatus = async (orderId, status) => {
-  return await fetch(`${urlOrders}/${orderId}`, {
-    method:"PUT",
-    headers: {"Content-type": "application/json",
-    "Authorization": token()
-    },
-    body: JSON.stringify({
-      status:status
-    })
-  }).then((response) => response.json())
-  .catch((error) => error);
-}
+  try {
+    const response = await fetch(`${urlOrders}/${orderId}`, {
+      method:"PUT",
+      headers: {"Content-type": "application/json",
+      "Authorization": token()
+      },
+      body: JSON.stringify({
+        status:status
+      })
+    })  
+    return response.json() 
+  } catch (error) {
+    return error
+  }
+}  
 

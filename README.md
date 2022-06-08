@@ -1,7 +1,7 @@
 <div align="center">
    <img alt="Logo Burger Queen" src="/src/imgs/logo-burger-queen.png">
   
-**Deploy:** https://beascarvalho.github.io/SAP007-burger-queen-api-client/
+**Deploy:** https://sap-007-burger-queen-api-client-beascarvalho.vercel.app/
 </div>
 
 ## ÍNDICE

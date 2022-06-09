@@ -33,10 +33,6 @@
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.saloon-menu:focus{
-  background-color: #D92525;
-}
-
 .product-button {
   background-color: rgba(56,	54,	89, 0.9);
   color: white;

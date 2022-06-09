@@ -38,10 +38,18 @@
   background-color: #96D168;
 }
 
-.p-info{
+.p-info,
+.p-info-id,
+.p-info-client,
+.p-info-table{
   padding: 5px 0 10px 10px;
 }
 
+.p-info-id,
+.p-info-client,
+.p-info-table{
+  font-weight: bold;
+}
 .p-info-product{
   padding: 0 0 10px 5px;
 }

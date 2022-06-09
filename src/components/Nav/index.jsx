@@ -1,21 +1,19 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { role } from "../../services/localStorage";
 
 
 import "./style.css";
 
-const Nav = (props) => {
+const Nav = ({pathLinkOne, textPathOne, pathLinkTwo, textPathTwo, pathLinkThree, textPathThree}) => {
   const roleKitchen = role() === "kitchen";
 
   return (
     <nav className="nav">
       <ul className="list">
-        <li><Link to={props.pathLinkOne} className='nav-link'>{props.textPathOne}</Link></li>
-        <li><Link to={props.pathLinkTwo} className='nav-link'>{props.textPathTwo}</Link></li>
-        {!roleKitchen ? 
-          <li><Link to={props.pathLinkThree} className='nav-link'>{props.textPathThree}</Link></li>
-          : ""
+        <li><Link to={pathLinkOne} className='nav-link'>{textPathOne}</Link></li>
+        <li><Link to={pathLinkTwo} className='nav-link'>{textPathTwo}</Link></li>
+        {!roleKitchen && 
+          <li><Link to={pathLinkThree} className='nav-link'>{textPathThree}</Link></li>
         }  
       </ul>  
     </nav>

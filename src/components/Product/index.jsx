@@ -3,9 +3,9 @@ import Button from "../Button";
 
 import "./style.css"
 
-function Product({name, flavor, image, complement, price, key, onClick}){
+function Product({name, flavor, image, complement, price, onClick}){
   return (
-    <li className='card-product' key={key}>
+    <li className='card-product'>
       <p className='name-product'>{name} {flavor}</p>
       <img className='img-product' src={image} alt={name}></img>
       <section className="complement-section">

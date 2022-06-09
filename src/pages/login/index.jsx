@@ -58,18 +58,26 @@ function Login() {
   }
 
   return (
-    <main className={styles.main} data-testid="login-test">
-      <img className={styles.logo} alt='Burger Queen Logo' src={logo}></img>
-      <Form formTitle='Login' pathLink='/register' textPath='Cadastrar novo funcionário' textButton='Entrar'
-        emailId='email' passwordId='password'  
-        onChange={handleChange}
-        onSubmit={handleSubmit}
-        emailValue ={infosUser.email} passwordValue={infosUser.password}
-      />
-      {isModalVisible ? <Modal className='modal active' 
-        onClose= {() => setIsModalVisible(false)}>{errorMessage}</Modal> : null
-      }
-    </main>
+    <div className={styles.container}>
+      <main className={styles.main} data-testid="login-test">
+        <img className={styles.logo} alt='Burger Queen Logo' src={logo}></img>
+        <Form formTitle='Login' pathLink='/register' textPath='Cadastrar novo funcionário' textButton='Entrar'
+          emailId='email' passwordId='password'  
+          onChange={handleChange}
+          onSubmit={handleSubmit}
+          emailValue ={infosUser.email} passwordValue={infosUser.password}
+        />
+        {isModalVisible && <Modal className='modal active' 
+          onClose= {() => setIsModalVisible(false)}>{errorMessage}</Modal>
+        }
+      </main>
+      <footer className={styles.footer}>
+        <a className={styles.a} href="https://github.com/BeaSCarvalho">
+          Desenvolvido por Beatriz de Sousa Carvalho     
+          <i className="fa-brands fa-github"></i>
+        </a>
+      </footer>
+    </div>
   );  
 };
 

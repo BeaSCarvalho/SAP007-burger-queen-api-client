@@ -20,7 +20,7 @@ function Saloon(){
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [orderList, setOrderList] = useState([]);
   const [buttonsFlavors, setButtonsFlavors] = useState(false);
-  const [price, setPrice] = useState([""])
+  const [selectedColor, setSelectedColor] = useState("breakfast");
 
   const [infosClient, setInfosClient] = useState({
     name: "",
@@ -52,6 +52,7 @@ function Saloon(){
     try {
       const response = await getAllProducts();
       setButtonsFlavors(false)
+      setSelectedColor(category)
       setFilteredProducts(response.filter((item) => {
         return item.type === category || item.sub_type === category
       }));
@@ -60,13 +61,15 @@ function Saloon(){
     }
   }
 
-  function handleFlavor(){
+  function handleFlavor(e){
     setButtonsFlavors(true)
+    setSelectedColor(e.target.value)
   }
 
   async function filterPerFlavor(flavor) {
     try {
       const response = await getAllProducts();
+      setSelectedColor(flavor)
       setFilteredProducts(response.filter((item) => {
         return item.flavor === flavor 
       }));
@@ -177,16 +180,30 @@ function Saloon(){
       }
       <section className={styles.form}>
         <div className={styles.menu}>
-          <Button className='saloon-menu' id='breakfast' text='Café da Manhã' onClick={() => handleMenu("breakfast")}/>
-          <Button className='saloon-menu' id='all-day' text='Lanches' onClick={() => handleFlavor()} />
-          <Button className='saloon-menu' id='all-day' text='Porções' onClick={() => handleMenu("side")} />
-          <Button className='saloon-menu' id='all-day' text='Bebidas' onClick={() => handleMenu("drinks")} />
+          <Button className='saloon-menu' id='breakfast' text='Café da Manhã' onClick={() => handleMenu("breakfast")} 
+            style={{backgroundColor: selectedColor === "breakfast" ? "#D92525" : "#A61212"}}
+          />
+          <Button className='saloon-menu' id='all-day' text='Lanches' onClick={handleFlavor} 
+            style={{backgroundColor: selectedColor === "" ? "#D92525" : "#A61212"}}
+          />
+          <Button className='saloon-menu' id='all-day' text='Porções' onClick={() => handleMenu("side")}
+            style={{backgroundColor: selectedColor === "side" ? "#D92525" : "#A61212"}}
+          />
+          <Button className='saloon-menu' id='all-day' text='Bebidas' onClick={() => handleMenu("drinks")}
+            style={{backgroundColor: selectedColor === "drinks" ? "#D92525" : "#A61212"}}
+          />
         </div>
         {buttonsFlavors && 
           <div className={styles.flavors}>
-            <Button className='saloon-menu' text='Carne' onClick={() => filterPerFlavor("carne")}/>
-            <Button className='saloon-menu' text='Frango' onClick={() => filterPerFlavor("frango")}/>
-            <Button className='saloon-menu' text='Vegetariano' onClick={() => filterPerFlavor("vegetariano")}/>
+            <Button className='saloon-menu' text='Carne' onClick={() => filterPerFlavor("carne")}
+              style={{backgroundColor: selectedColor === "carne" ? "#D92525" : "#A61212"}}
+            />
+            <Button className='saloon-menu' text='Frango' onClick={() => filterPerFlavor("frango")}
+              style={{backgroundColor: selectedColor === "frango" ? "#D92525" : "#A61212"}}
+            />
+            <Button className='saloon-menu' text='Vegetariano' onClick={() => filterPerFlavor("vegetariano")}
+              style={{backgroundColor: selectedColor === "vegetariano" ? "#D92525" : "#A61212"}}
+            />
           </div>
         }    
       </section>
@@ -194,15 +211,16 @@ function Saloon(){
         <ul className={styles.main}>
           {filteredProducts.map((item) => {
             return (
-              <Product
-              key={item.id}
-              name={item.name}
-              image={item.image} 
-              flavor={item.flavor} 
-              complement={item.complement !== null ? "Complemento: " + item.complement : "sem complemento"} 
-              price={new Intl.NumberFormat("br-BR", {style: "currency", currency:"BRL"}).format(item.price)}
-              onClick={() => addItemToOrder(item)}
-              />
+              <div key={item.id}>
+                <Product
+                name={item.name}
+                image={item.image} 
+                flavor={item.flavor} 
+                complement={item.complement !== null ? "Complemento: " + item.complement : "sem complemento"} 
+                price={new Intl.NumberFormat("br-BR", {style: "currency", currency:"BRL"}).format(item.price)}
+                onClick={() => addItemToOrder(item)}
+                />
+              </div>
             )
           })}
         </ul>
@@ -214,15 +232,16 @@ function Saloon(){
             {orderList.map((item) =>{
               const checkFlavor = item.flavor === null;
               return (
-                <ItemOrderList 
-                  key={item.id}
-                  name={checkFlavor ? item.name : item.name + " - " + item.flavor}
-                  qtd={item.qtd}
-                  price={item.qtd * item.price}
-                  complement = {item.complement !== null ? item.complement : "s/c."}
-                  removeItem={() => removeItemOfOrder(item)}
-                  addItem={() => addItemToOrder(item)}
-                />
+                <div key={item.id}>
+                  <ItemOrderList 
+                    name={checkFlavor ? item.name : item.name + " - " + item.flavor}
+                    qtd={item.qtd}
+                    price={item.qtd * item.price}
+                    complement = {item.complement !== null ? item.complement : "s/c."}
+                    removeItem={() => removeItemOfOrder(item)}
+                    addItem={() => addItemToOrder(item)}
+                  />
+                </div>
               )  
             })}
           </ul>  

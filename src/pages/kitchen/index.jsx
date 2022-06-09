@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
-import { getAllOrders, updateOrderStatus} from "../../services/orders";
 import { getTime, getPreparationTime } from "../../components/Time/formatDate"
-
+import { getAllOrders, updateOrderStatus} from "../../services/orders";
 
 import Header from "../../components/Header";
 import { OrderCard, OrderProduct } from "../../components/OrderCard";
 import Nav from "../../components/Nav";
 import Modal from "../../components/Modal";
-
 import styles from "./kitchen.module.css";
 
 function Kitchen(){

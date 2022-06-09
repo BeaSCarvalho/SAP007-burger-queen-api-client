@@ -4,12 +4,12 @@ import Button from "../Button";
 
 import "./style.css"
 
-export const OrderCard = ({key, status, id, clientName, table, createdAt, processedAt,
+export const OrderCard = ({status, id, clientName, table, createdAt, processedAt,
     preparedAt, updatedAt, orderProducts, updateToProcessing, updateToReady, updateToDeliveried
   }) => {
   const historicPage = window.location.pathname === "/historic";
   return (
-    <li className="card-order" key={key}>
+    <li className="card-order">
       <section className="change-status-card">
         {status === "pending" && (
           <div className="order-status color-pending color-lightest">
@@ -32,9 +32,9 @@ export const OrderCard = ({key, status, id, clientName, table, createdAt, proces
           </div>
         )}
         <section className='infos-card-order'> 
-          <p className="p-info">{id}</p>
-          <p className="p-info">Cliente: {clientName}</p>
-          <p className="p-info">Mesa: {table}</p>
+          <p className="p-info-id">{id}</p>
+          <p className="p-info-client">Cliente: {clientName}</p>
+          <p className="p-info-table">Mesa: {table}</p>
           <p className="p-info">Criado em: {createdAt}</p>
           <p className="p-info">Finalizado em: {processedAt}</p>
           <p className="p-info">Preparado em: {preparedAt}</p>
@@ -61,15 +61,15 @@ export const OrderCard = ({key, status, id, clientName, table, createdAt, proces
   )    
 }
 
-export const OrderProduct = (props, key) => {
+export const OrderProduct = ({name, flavor, complement, qtd}) => {
   
   return (
-    <div className='container-products-order' key={key}>
+    <div className='container-products-order'>
       <p className='items-title'>Item:</p>
-      <p className='p-info-product'>{props.name}</p>
-      <p className='p-info-product'>{props.flavor}</p>
-      <p className='p-info-product'>Complemento: {props.complement}</p>
-      <p className='p-info-product'>Quantidade: {props.qtd}</p>
+      <p className='p-info-product'>{name}</p>
+      <p className='p-info-product'>{flavor}</p>
+      <p className='p-info-product'>Complemento: {complement}</p>
+      <p className='p-info-product'>Quantidade: {qtd}</p>
     </div>
   )    
 }

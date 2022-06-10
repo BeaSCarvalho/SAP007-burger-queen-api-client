@@ -9,9 +9,9 @@
 * [1. Sobre o Projeto](#1-sobre-o-projeto)
 * [2. Histórias de Usuários](#2-histórias-de-usuários)
 * [3. Definição de Pronto](#3-definição-de-pronto)
-* [4. Protótipo](#5-protótipo)
-* [5. Tecnologias Utilizadas](#6-tecnologias-utilizadas)
-* [6. Autora](#7-autora)
+* [4. Protótipo](#4-protótipo)
+* [5. Tecnologias Utilizadas](#5-tecnologias-utilizadas)
+* [6. Autora](#6-autora)
 
 ***
 
@@ -83,7 +83,13 @@ Garçom/garçonete poderá visualizar uma tela que mostra apenas os pedidos pron
 
 ## 4. PROTÓTIPO
 
-Prototipo desenvolvido no Figma  
+Prototipo desenvolvido no Figma.
+
+<img alt="Protótipo do Projeto" src="/src/imgs/Frame 8.png" width=800>
+
+### *Paleta de Cores*
+
+<img alt="Paleta de Cores" src="/src/imgs/palet.png" width=800>
 
 ## 5. TECNOLOGIAS UTILIZADAS
 

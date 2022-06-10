@@ -5,7 +5,6 @@ import Kitchen from "./pages/kitchen";
 import Saloon from "./pages/saloon/saloon";
 import Status from "./pages/saloon/status";
 import Historic from "./pages/historic";
-import Manager from "./pages/manager/manager";
 
 import "./style.css";
 
@@ -19,7 +18,6 @@ function Paths() {
         <Route path="saloon" element={<Saloon />} />
         <Route path="status" element={<Status />} />
         <Route path="historic" element={<Historic />} />
-        <Route path="manager" element={<Manager />} />
       </Routes>
     </>
   );

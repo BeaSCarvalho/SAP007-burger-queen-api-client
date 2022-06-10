@@ -4,9 +4,9 @@ import Button from "../Button";
 
 import "./style.css"
 
-const ItemOrderList = ({key, name, removeItem, qtd, addItem, complement, price}) => {
+const ItemOrderList = ({name, removeItem, qtd, addItem, complement, price}) => {
   return (
-    <li className="item-container" key={key}>
+    <li className="item-container">
       <p className="product-name">{name}</p>
       <div className="qtd-product">
         <Button className='product-qtd-btn' text='-' onClick={removeItem}/>

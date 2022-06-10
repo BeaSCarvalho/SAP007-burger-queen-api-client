@@ -1,17 +1,31 @@
-.main {
+.container {
   background-color: #590202; 
   width: 768px;
   display: flex;
   flex-direction: column;
   align-items: center;
   align-self: center;
-  height: 655px;
-}  
+  height: 100vh;
+}
 
 .logo {
   width: 20rem;
 }
 
-.body {
-  background-image: url('../../imgs/fast-food-pattern.jpg');
-} 
+.footer{
+  font-family: 'Rubik', sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  
+  position: fixed;
+  bottom: 0;
+}
+
+.a{
+  text-decoration: none;
+  color: #D9BB84;
+}
+
+.a:focus{
+  color: black;
+}

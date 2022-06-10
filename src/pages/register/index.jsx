@@ -55,17 +55,19 @@ function Register() {
   }
 
   return (
-    <main className={styles.main}>
-      <img alt='Burger Queen Logo' className={styles.logo} src={logo}></img>
-      <Form page ='register' formTitle='Cadastre-se' pathLink='/' textPath='Caso já tenha cadastro, faça Login'
-        textButton='Cadastrar'  nameId='name' emailId='email' passwordId='password'  
-        onChange={handleChange}
-        onSubmit={handleSubmit}
-        nameValue={infosUser.name}
-        emailValue ={infosUser.email} passwordValue={infosUser.password}
-      />
-      {isModalVisible && <Modal className={"active"} onClose= {() => setIsModalVisible(false)}>{errorMessage}</Modal>}
-    </main>  
+    <div className={styles.container}>
+      <main className={styles.main}>
+        <img alt='Burger Queen Logo' className={styles.logo} src={logo}></img>
+        <Form page ='register' formTitle='Cadastre-se' pathLink='/' textPath='Caso já tenha cadastro, faça Login'
+          textButton='Cadastrar'  nameId='name' emailId='email' passwordId='password'  
+          onChange={handleChange}
+          onSubmit={handleSubmit}
+          nameValue={infosUser.name}
+          emailValue ={infosUser.email} passwordValue={infosUser.password}
+        />
+        {isModalVisible && <Modal className={"active"} onClose= {() => setIsModalVisible(false)}>{errorMessage}</Modal>}
+      </main>  
+    </div>
   )
 }
 

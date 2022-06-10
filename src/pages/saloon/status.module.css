@@ -1,3 +1,4 @@
+
 .container {
   width: 768px;
   display: flex;
@@ -7,7 +8,6 @@
   align-self: center;
   font-family: 'Rubik', sans-serif;
   background-color: #D9BB84;
-  
 }
 
 .main{

@@ -93,7 +93,7 @@ Prototipo desenvolvido no Figma.
 
 ## 5. TECNOLOGIAS UTILIZADAS
 
-- **React**
+- **React.JS**
 - **CSS3**
 - **HTML5**
 - **GitHub**

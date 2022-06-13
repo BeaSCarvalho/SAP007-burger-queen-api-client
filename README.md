@@ -10,8 +10,9 @@
 * [2. Histórias de Usuários](#2-histórias-de-usuários)
 * [3. Definição de Pronto](#3-definição-de-pronto)
 * [4. Protótipo](#4-protótipo)
-* [5. Tecnologias Utilizadas](#5-tecnologias-utilizadas)
-* [6. Autora](#6-autora)
+* [5. Produto Final](#5-produto-final)
+* [6. Tecnologias e Ferramentas Utilizadas](#6-tecnologias-e-ferramentas-utilizadas)
+* [7. Autora](#7-autora)
 
 ***
 
@@ -91,7 +92,11 @@ Prototipo desenvolvido no Figma.
 
 <img alt="Paleta de Cores" src="/src/imgs/palet.png" width=800>
 
-## 5. TECNOLOGIAS UTILIZADAS
+## 5.PRODUTO FINAL
+
+<img alt="Gif do produto final" src="/src/imgs/gif-burger-queen.gif" width=800>
+
+## 6. TECNOLOGIAS e FERRAMENTAS UTILIZADAS
 
 - **React.JS**
 - **CSS3**
@@ -103,7 +108,7 @@ Prototipo desenvolvido no Figma.
 - Edições de imagem: **[Canva](https://www.canva.com/)**
 - Paleta de cores: **[Adobe Color](https://color.adobe.com/pt/create/color-wheel)**
 
-## 6. AUTORA
+## 7. AUTORA
 
 <table>
   <td>
